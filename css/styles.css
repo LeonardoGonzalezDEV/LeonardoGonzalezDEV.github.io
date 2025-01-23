@@ -152,7 +152,7 @@ body {
 
 #contact-form input::placeholder, 
 #contact-form textarea::placeholder {
-    color: #999 !important;
+    color: rgba(255, 255, 255, 0.7) !important;
 }
 
 #contact-form input:focus, 
@@ -160,6 +160,12 @@ body {
     background-color: #1e1e1e !important;
     border-color: var(--primary-color);
     box-shadow: 0 0 10px rgba(52, 152, 219, 0.3);
+    color: #ffffff !important;
+}
+
+.form-control:focus {
+    color: #ffffff !important;
+    background-color: #1e1e1e !important;
 }
 
 /* Botones */

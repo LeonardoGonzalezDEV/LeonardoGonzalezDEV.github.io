@@ -220,6 +220,7 @@ body {
         bottom: 20px;
         right: 20px;
         font-size: 25px;
+        z-index: 1000;
     }
 }
 
@@ -247,7 +248,7 @@ body {
     text-align: center;
     font-size: 30px;
     box-shadow: 2px 2px 3px #999;
-    z-index: 100;
+    z-index: 1000;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -260,4 +261,15 @@ body {
     color: #FFF;
     transform: translateY(-5px);
     box-shadow: 2px 7px 15px rgba(0,0,0,0.3);
+}
+
+/* Media query para pantallas muy pequeñas */
+@media (max-width: 320px) {
+    .whatsapp-float {
+        width: 45px;
+        height: 45px;
+        bottom: 15px;
+        right: 15px;
+        font-size: 22px;
+    }
 }

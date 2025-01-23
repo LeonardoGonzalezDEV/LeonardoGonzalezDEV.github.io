@@ -41,6 +41,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <a href="https://www.linkedin.com/in/leonardo-gonzalez-8a2191204/"><img src="img/linkedin.jpg" alt="LinkedIn"></a>
   </div>
   </header>
+  <div id="cookieConsent" style="position: fixed; bottom: 0; width: 100%; background: #333; color: #fff; text-align: center; padding: 10px; z-index: 1000; display: none;">
+  <p style="margin: 0; padding: 0;">
+    Este sitio utiliza cookies para mejorar tu experiencia. <a href="/politica-cookies.html" style="color: #f1c40f;">Leer más</a>.
+    <button id="acceptCookies" style="background: #f1c40f; color: #333; border: none; padding: 5px 10px; cursor: pointer;">Aceptar</button>
+  </p>
+</div>
   
     <div class="main-section">
         <img src="img/fondo.jpg" alt="Fondo" class="background-image">
@@ -268,6 +274,44 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   gtag('js', new Date());
 
   gtag('config', 'G-230GE6WC0C');
+</script>
+  <script>
+  // Mostrar el banner si el usuario no ha dado consentimiento
+  document.addEventListener("DOMContentLoaded", () => {
+    if (!localStorage.getItem("cookiesAccepted")) {
+      document.getElementById("cookieConsent").style.display = "block";
+    }
+
+    document.getElementById("acceptCookies").addEventListener("click", () => {
+      localStorage.setItem("cookiesAccepted", "true");
+      document.getElementById("cookieConsent").style.display = "none";
+
+      // Cargar Google Analytics al aceptar
+      loadGoogleAnalytics();
+    });
+  });
+
+  // Función para cargar Google Analytics
+  function loadGoogleAnalytics() {
+    const gaScript = document.createElement("script");
+    gaScript.async = true;
+    gaScript.src = "https://www.googletagmanager.com/gtag/js?id=G-230GE6WC0C";
+    document.head.appendChild(gaScript);
+
+    gaScript.onload = () => {
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-230GE6WC0C");
+    };
+  }
+
+  // Cargar Google Analytics automáticamente si ya se ha aceptado
+  if (localStorage.getItem("cookiesAccepted")) {
+    loadGoogleAnalytics();
+  }
 </script>
   
   

@@ -1,0 +1,20 @@
+# Permitir acceso a todos los bots
+User-agent: *
+Allow: /
+
+# Permitir todas las secciones principales
+Allow: /index.html
+Allow: /flyer.html
+Allow: /#inicio
+Allow: /#sobre-mi
+Allow: /#tecnologias
+Allow: /#proyectos
+Allow: /#contacto
+
+# Ubicación del sitemap
+Sitemap: https://leonardogonzalezdev.github.io/sitemap.xml
+
+# Bloquear directorios privados si existieran
+Disallow: /private/
+Disallow: /admin/
+Disallow: /temp/

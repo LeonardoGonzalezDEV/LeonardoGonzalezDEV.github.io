@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evento Exclusivo 2025</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <style>
+        :root {
+            --dark-primary: #1a1a1a;
+            --dark-secondary: #2d2d2d;
+            --gold: #c5a47e;
+            --gold-hover: #d4b898;
+        }
+
+        body {
+            background-color: var(--dark-primary);
+            color: #fff;
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* Estilos de Navegación */
+        .navbar {
+            background-color: rgba(26, 26, 26, 0.95) !important;
+            border-bottom: 1px solid var(--gold);
+            padding: 15px 0;
+        }
+
+        .navbar-brand {
+            color: var(--gold) !important;
+            font-weight: bold;
+            letter-spacing: 2px;
+            font-size: 1.5rem;
+        }
+
+        .nav-link {
+            color: #fff !important;
+            transition: color 0.3s ease;
+            font-size: 1.1rem;
+            margin: 0 10px;
+        }
+
+        .nav-link:hover {
+            color: var(--gold) !important;
+        }
+
+        /* Estilos de Hero */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://images.unsplash.com/photo-1492684223066-81342ee5ff30');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: linear-gradient(to top, var(--dark-primary), transparent);
+        }
+
+        /* Nuevos estilos para imágenes */
+        .gallery-section {
+            padding: 80px 0;
+            background-color: var(--dark-secondary);
+        }
+
+        .gallery-container {
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 30px;
+            border: 2px solid var(--gold);
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .gallery-img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            transition: all 0.5s ease;
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(197, 164, 126, 0.2);
+            opacity: 0;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .gallery-container:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-container:hover .gallery-img {
+            transform: scale(1.1);
+        }
+
+        .gallery-text {
+            color: white;
+            font-size: 1.2rem;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+        }
+
+        .gallery-container:hover .gallery-text {
+            transform: translateY(0);
+        }
+
+        /* Estilos de Ponentes */
+        .speaker-card {
+            background-color: var(--dark-primary);
+            border: 1px solid var(--gold);
+            padding: 30px;
+            text-align: center;
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .speaker-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 20px rgba(197, 164, 126, 0.2);
+        }
+
+        .speaker-img-container {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 20px;
+            overflow: hidden;
+            border-radius: 50%;
+            border: 3px solid var(--gold);
+        }
+
+        .speaker-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.5s ease;
+        }
+
+        .speaker-card:hover .speaker-img {
+            transform: scale(1.1);
+        }
+
+        /* Estilos de Sección */
+        .section {
+            padding: 100px 0;
+            background-color: var(--dark-secondary);
+        }
+
+        .section:nth-child(even) {
+            background-color: var(--dark-primary);
+        }
+
+        .section-title {
+            color: var(--gold);
+            margin-bottom: 50px;
+            position: relative;
+            display: inline-block;
+            font-size: 2.5rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 50%;
+            height: 2px;
+            background-color: var(--gold);
+        }
+
+        /* Botón personalizado */
+        .btn-gold {
+            background-color: var(--gold);
+            color: #fff;
+            padding: 15px 40px;
+            border: none;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 30px;
+        }
+
+        .btn-gold:hover {
+            background-color: var(--gold-hover);
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(197, 164, 126, 0.3);
+        }
+
+        .modal-content {
+    background-color: var(--dark-secondary);
+    border: 1px solid var(--gold);
+    border-radius: 10px;
+    color: white;
+}
+
+.modal-header {
+    border-bottom: 1px solid var(--gold);
+    padding: 1.5rem;
+}
+
+.modal-footer {
+    border-top: 1px solid var(--gold);
+    padding: 1.5rem;
+}
+
+.modal-title {
+    color: var(--gold);
+    font-weight: bold;
+}
+
+.close {
+    color: var(--gold);
+    opacity: 1;
+}
+
+.ticket-type {
+    background-color: var(--dark-primary);
+    border: 1px solid var(--gold);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+}
+
+.ticket-type:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(197, 164, 126, 0.2);
+}
+
+.ticket-price {
+    color: var(--gold);
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.quantity-control {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.quantity-btn {
+    background-color: var(--gold);
+    border: none;
+    color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.quantity-btn:hover {
+    background-color: var(--gold-hover);
+}
+
+.quantity-display {
+    font-size: 1.2rem;
+    min-width: 40px;
+    text-align: center;
+}
+
+.total-section {
+    background-color: var(--dark-primary);
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+.paypal-button-container {
+    margin-top: 20px;
+}
+
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">EVENTO EXCLUSIVO</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#galeria">Galería</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#ponentes">Ponentes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#programa">Programa</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contacto">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content" data-aos="fade-up">
+                <h1>Evento Exclusivo 2025</h1>
+                <p>Una experiencia única e inolvidable</p>
+                <button class="btn btn-gold" data-bs-toggle="modal" data-bs-target="#reservationModal">Reserva tu lugar</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="galeria" class="gallery-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-right">Eventos Anteriores</h2>
+            <div class="row">
+                <div class="col-md-4" data-aos="fade-up">
+                    <div class="gallery-container">
+                        <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622" class="gallery-img" alt="Galería 1">
+                        <div class="gallery-overlay">
+                            <p class="gallery-text">Gala Anual 2024</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="gallery-container">
+                        <img src="https://images.unsplash.com/photo-1469371670807-013ccf25f16a" class="gallery-img" alt="Galería 2">
+                        <div class="gallery-overlay">
+                            <p class="gallery-text">Conferencia de Innovación</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="gallery-container">
+                        <img src="https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3" class="gallery-img" alt="Galería 3">
+                        <div class="gallery-overlay">
+                            <p class="gallery-text">Premio a la Excelencia</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="ponentes" class="section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-right">Ponentes Destacados</h2>
+            <div class="row">
+                <div class="col-md-4" data-aos="fade-up">
+                    <div class="speaker-card">
+                        <div class="speaker-img-container">
+                            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956" alt="Ponente 1" class="speaker-img">
+                        </div>
+                        <h3>Sara Jiménez</h3>
+                        <p>Directora Ejecutiva, Innovación Corp</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="speaker-card">
+                        <div class="speaker-img-container">
+                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e" alt="Ponente 2" class="speaker-img">
+                        </div>
+                        <h3>Miguel Chen</h3>
+                        <p>Visionario Tecnológico</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="speaker-card">
+                        <div class="speaker-img-container">
+                            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2" alt="Ponente 3" class="speaker-img">
+                        </div>
+                        <h3>Emma Martínez</h3>
+                        <p>Experta en Diseño</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="programa" class="section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-right">Programa del Evento</h2>
+            <div class="timeline">
+                <div class="timeline-item" data-aos="fade-right">
+                    <div class="timeline-content">
+                        <h3>9:00 - Ceremonia de Apertura</h3>
+                        <p>Bienvenida y discurso inaugural</p>
+                    </div>
+                </div>
+                <div class="timeline-item" data-aos="fade-left">
+                    <div class="timeline-content">
+                        <h3>10:30 - Panel de Innovación</h3>
+                        <p>Líderes de la industria discuten tendencias futuras</p>
+                    </div>
+                </div>
+                <div class="timeline-item" data-aos="fade-right">
+                    <div class="timeline-content">
+                        <h3>12:00 - Almuerzo Networking</h3>
+                        <p>Experiencia gastronómica exclusiva</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contacto">
+        <div class="container text-center">
+            <h2 class="section-title">Contacto</h2>
+            <p>Email: info@eventoexclusivo.com</p>
+            <p>Teléfono: +34 900 123 456</p>
+            <div class="social-links mt-4">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <div class="modal fade" id="reservationModal" tabindex="-1" aria-labelledby="reservationModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="reservationModalLabel">Reserva tus Boletos</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <!-- Boleto Normal -->
+                            <div class="col-md-6">
+                                <div class="ticket-type">
+                                    <h3>Entrada Normal</h3>
+                                    <p>Acceso a todas las conferencias y networking</p>
+                                    <div class="ticket-price">$2000 MXN</div>
+                                    <div class="quantity-control mt-3">
+                                        <button class="quantity-btn" onclick="updateQuantity('normal', -1)">-</button>
+                                        <span class="quantity-display" id="normalQuantity">0</span>
+                                        <button class="quantity-btn" onclick="updateQuantity('normal', 1)">+</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Boleto VIP -->
+                            <div class="col-md-6">
+                                <div class="ticket-type">
+                                    <h3>Entrada VIP</h3>
+                                    <p>Acceso premium + cena de gala + área exclusiva</p>
+                                    <div class="ticket-price">$6000 MXN</div>
+                                    <div class="quantity-control mt-3">
+                                        <button class="quantity-btn" onclick="updateQuantity('vip', -1)">-</button>
+                                        <span class="quantity-display" id="vipQuantity">0</span>
+                                        <button class="quantity-btn" onclick="updateQuantity('vip', 1)">+</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="total-section">
+                            <h4>Resumen de Compra</h4>
+                            <div class="d-flex justify-content-between">
+                                <span>Entradas Normales:</span>
+                                <span id="normalSummary">0 x €100 = €0</span>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <span>Entradas VIP:</span>
+                                <span id="vipSummary">0 x €300 = €0</span>
+                            </div>
+                            <hr style="border-color: var(--gold)">
+                            <div class="d-flex justify-content-between">
+                                <strong>Total:</strong>
+                                <strong id="totalAmount">€0</strong>
+                            </div>
+                        </div>
+
+
+                        <div id="paymentForm" style="display: none;">
+                            <form>
+                                <div class="mb-3">
+                                    <label for="cardNumber" class="form-label">Número de Tarjeta</label>
+                                    <input type="text" class="form-control" id="cardNumber" required>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="expiryDate" class="form-label">Fecha de Expiración</label>
+                                        <input type="text" class="form-control" id="expiryDate" placeholder="MM/YY" required>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="cvv" class="form-label">CVV</label>
+                                        <input type="text" class="form-control" id="cvv" required>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Pagar</button>
+                            </form>
+                        </div>
+    
+                        <div id="paypal-button-container" class="paypal-button-container"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Cambiar la URL del script de PayPal para usar MXN -->
+<script src="https://www.paypal.com/sdk/js?client-id=test&currency=MXN"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <script>
+        // Inicialización de animaciones AOS
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+
+        // Navegación suave
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Cambio de fondo de la barra de navegación al hacer scroll
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 50) {
+                document.querySelector('.navbar').style.backgroundColor = 'rgba(26, 26, 26, 0.95)';
+            } else {
+                document.querySelector('.navbar').style.backgroundColor = 'rgba(26, 26, 26, 0.7)';
+            }
+        });
+
+        // Cerrar menú móvil al hacer clic en un enlace
+        const navLinks = document.querySelectorAll('.nav-link');
+        const menuToggle = document.getElementById('navbarNav');
+        const bsCollapse = new bootstrap.Collapse(menuToggle, {toggle: false});
+        navLinks.forEach((l) => {
+            l.addEventListener('click', () => { 
+                if (menuToggle.classList.contains('show')) {
+                    bsCollapse.toggle();
+                }
+            });
+        });
+
+        // Animación de números para contador de asistentes (opcional)
+        function animateValue(obj, start, end, duration) {
+            let startTimestamp = null;
+            const step = (timestamp) => {
+                if (!startTimestamp) startTimestamp = timestamp;
+                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                obj.innerHTML = Math.floor(progress * (end - start) + start);
+                if (progress < 1) {
+                    window.requestAnimationFrame(step);
+                }
+            };
+            window.requestAnimationFrame(step);
+        }
+
+        // Lazy loading para imágenes
+        document.addEventListener("DOMContentLoaded", function() {
+            const lazyImages = document.querySelectorAll('img[data-src]');
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src;
+                        img.removeAttribute('data-src');
+                        imageObserver.unobserve(img);
+                    }
+                });
+            });
+
+            lazyImages.forEach(img => imageObserver.observe(img));
+        });
+
+        // Manejar el formulario de contacto (si se agrega uno)
+        const handleSubmit = (event) => {
+            event.preventDefault();
+            // Aquí iría la lógica para manejar el envío del formulario
+            console.log('Formulario enviado');
+        };
+
+        // Detectar cuando el usuario llega al final de la página
+        window.addEventListener('scroll', () => {
+            if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+                console.log('Usuario llegó al final de la página');
+                // Aquí puedes agregar alguna acción específica
+            }
+        });
+    </script>
+
+<script>
+    // Variables para el control de cantidades y precios
+    let tickets = {
+        normal: { quantity: 0, price: 2000 },
+        vip: { quantity: 0, price: 6000 }
+    };
+
+    // Función para actualizar cantidades
+    function updateQuantity(type, change) {
+        const newQuantity = tickets[type].quantity + change;
+        if (newQuantity >= 0 && newQuantity <= 10) {
+            tickets[type].quantity = newQuantity;
+            document.getElementById(`${type}Quantity`).textContent = newQuantity;
+            updateSummary();
+        }
+    }
+
+    // Función para actualizar el resumen
+    function updateSummary() {
+        const normalTotal = tickets.normal.quantity * tickets.normal.price;
+        const vipTotal = tickets.vip.quantity * tickets.vip.price;
+        const total = normalTotal + vipTotal;
+
+        document.getElementById('normalSummary').textContent = 
+            `${tickets.normal.quantity} x $${tickets.normal.price} MXN = $${normalTotal} MXN`;
+        document.getElementById('vipSummary').textContent = 
+            `${tickets.vip.quantity} x $${tickets.vip.price} MXN = $${vipTotal} MXN`;
+        document.getElementById('totalAmount').textContent = `$${total} MXN`;
+
+        // Limpiar contenedor de PayPal antes de renderizar
+        const paypalContainer = document.getElementById('paypal-button-container');
+        paypalContainer.innerHTML = '';
+
+        // Actualizar botón de PayPal solo si hay un total mayor a 0
+        if (total > 0) {
+            initPayPalButton(total);
+        }
+    }
+
+    // Inicializar botón de PayPal
+    function initPayPalButton(total) {
+        paypal.Buttons({
+            style: {
+                color: 'gold',
+                shape: 'rect',
+                layout: 'vertical'
+            },
+            createOrder: function(data, actions) {
+                return actions.order.create({
+                    purchase_units: [{
+                        amount: {
+                            currency_code: 'MXN',
+                            value: total.toString()
+                        }
+                    }]
+                });
+            },
+            onApprove: function(data, actions) {
+                return actions.order.capture().then(function(details) {
+                    alert('¡Pago completado! Gracias por tu compra, ' + details.payer.name.given_name);
+                    document.getElementById('reservationModal').modal('hide');
+                });
+            }
+        }).render('#paypal-button-container');
+    }
+
+    // Limpiar el modal cuando se cierra
+    document.getElementById('reservationModal').addEventListener('hidden.bs.modal', function () {
+        tickets.normal.quantity = 0;
+        tickets.vip.quantity = 0;
+        document.getElementById('normalQuantity').textContent = '0';
+        document.getElementById('vipQuantity').textContent = '0';
+        updateSummary();
+    });
+</script>
+</body>
+</html>

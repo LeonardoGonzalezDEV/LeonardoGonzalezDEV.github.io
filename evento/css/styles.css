@@ -1,0 +1,108 @@
+/* Estilos generales del proyecto */
+
+body {
+    background-color: var(--dark-primary);
+    color: #fff;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Estilos de Navegación */
+.navbar {
+    background-color: rgba(26, 26, 26, 0.95) !important;
+    border-bottom: 1px solid var(--gold);
+    padding: 15px 0;
+}
+
+.navbar-brand {
+    color: var(--gold) !important;
+    font-weight: bold;
+    letter-spacing: 2px;
+    font-size: 1.5rem;
+}
+
+.nav-link {
+    color: #fff !important;
+    transition: color 0.3s ease;
+    font-size: 1.1rem;
+    margin: 0 10px;
+}
+
+.nav-link:hover {
+    color: var(--gold) !important;
+}
+
+/* Estilos de Sección */
+.section {
+    padding: 100px 0;
+    background-color: var(--dark-secondary);
+}
+
+.section:nth-child(even) {
+    background-color: var(--dark-primary);
+}
+
+.section-title {
+    color: var(--gold);
+    margin-bottom: 50px;
+    position: relative;
+    display: inline-block;
+    font-size: 2.5rem;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 50%;
+    height: 2px;
+    background-color: var(--gold);
+}
+
+/* Botón personalizado */
+.btn-gold {
+    background-color: var(--gold);
+    color: #fff;
+    padding: 15px 40px;
+    border: none;
+    transition: all 0.3s ease;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 30px;
+}
+
+.btn-gold:hover {
+    background-color: var(--gold-hover);
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(197, 164, 126, 0.3);
+}
+
+/* Estilos de Modal */
+.modal-content {
+    background-color: var(--dark-secondary);
+    border: 1px solid var(--gold);
+    border-radius: 10px;
+    color: white;
+}
+
+.modal-header {
+    border-bottom: 1px solid var(--gold);
+    padding: 1.5rem;
+}
+
+.modal-footer {
+    border-top: 1px solid var(--gold);
+    padding: 1.5rem;
+}
+
+.modal-title {
+    color: var(--gold);
+    font-weight: bold;
+}
+
+.close {
+    color: var(--gold);
+    opacity: 1;
+}

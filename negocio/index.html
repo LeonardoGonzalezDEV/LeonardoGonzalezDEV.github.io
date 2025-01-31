@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Café Aromas</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Café Aromas</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#inicio">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#productos">Productos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#nosotros">Nosotros</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-section" id="inicio">
+        <div class="container">
+            <h1 class="display-3">Café Aromas</h1>
+            <p class="lead">Los mejores granos, el más delicioso café</p>
+            <a href="#productos" class="btn btn-danger btn-lg mt-3">Descubre Nuestros Cafés</a>
+        </div>
+    </header>
+
+    <!-- Productos Section -->
+    <section id="productos" class="py-5">
+        <div class="container">
+            <h2 class="text-center section-title">Nuestros Productos</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card coffee-card">
+                        <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff" class="card-img-top" alt="Café Especial">
+                        <div class="card-body">
+                            <h5 class="card-title">Café Especial</h5>
+                            <p class="card-text">Mezcla selecta de granos de alta montaña.</p>
+                            <a href="#" class="btn btn-primary">Comprar</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card coffee-card">
+                        <img src="https://www.gob.mx/cms/uploads/article/main_image/2376/2015-01-23.jpg" class="card-img-top" alt="Café Orgánico">
+                        <div class="card-body">
+                            <h5 class="card-title">Café Orgánico</h5>
+                            <p class="card-text">100% orgánico, cultivado de manera sostenible.</p>
+                            <a href="#" class="btn btn-primary">Comprar</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card coffee-card">
+                        <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff" class="card-img-top" alt="Café Intenso">
+                        <div class="card-body">
+                            <h5 class="card-title">Café Intenso</h5>
+                            <p class="card-text">Tueste profundo, sabor robusto y complejo.</p>
+                            <a href="#" class="btn btn-primary">Comprar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nosotros Section -->
+    <section id="nosotros" class="bg-light py-5">
+        <div class="container">
+            <h2 class="text-center section-title">Nuestra Historia</h2>
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <img src="https://s9790.pcdn.co/wp-content/uploads/2018/07/face-mycoffeebox-imagen-2018.jpg" class="img-fluid rounded" alt="Nuestra Historia">
+                </div>
+                <div class="col-md-6">
+                    <h3>Pasión por el Café</h3>
+                    <p>Desde 1985, nos dedicamos a seleccionar los mejores granos de café del mundo, trabajando directamente con agricultores locales para garantizar la máxima calidad y un comercio justo.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto Section -->
+    <section id="contacto" class="py-5">
+        <div class="container">
+            <h2 class="text-center section-title">Contáctanos</h2>
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <form>
+                        <div class="mb-3">
+                            <input type="text" class="form-control" placeholder="Nombre" required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="email" class="form-control" placeholder="Correo Electrónico" required>
+                        </div>
+                        <div class="mb-3">
+                            <textarea class="form-control" rows="5" placeholder="Tu Mensaje" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-danger w-100">Enviar Mensaje</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-dark text-white text-center py-3">
+        <p>&copy; 2024 Café Aromas. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/form-validation.js"></script>
+</body>
+</html>

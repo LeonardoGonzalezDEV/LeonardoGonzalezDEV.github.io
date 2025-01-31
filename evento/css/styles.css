@@ -1,4 +1,9 @@
-/* Estilos generales del proyecto */
+:root {
+    --dark-primary: #1a1a1a;
+    --dark-secondary: #2d2d2d;
+    --gold: #c5a47e;
+    --gold-hover: #d4b898;
+}
 
 body {
     background-color: var(--dark-primary);
@@ -29,6 +34,125 @@ body {
 
 .nav-link:hover {
     color: var(--gold) !important;
+}
+
+/* Estilos de Hero */
+.hero {
+    height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                url('https://images.unsplash.com/photo-1492684223066-81342ee5ff30');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100px;
+    background: linear-gradient(to top, var(--dark-primary), transparent);
+}
+
+/* Nuevos estilos para imágenes */
+.gallery-section {
+    padding: 80px 0;
+    background-color: var(--dark-secondary);
+}
+
+.gallery-container {
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 30px;
+    border: 2px solid var(--gold);
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.gallery-img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    transition: all 0.5s ease;
+}
+
+.gallery-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(197, 164, 126, 0.2);
+    opacity: 0;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+}
+
+.gallery-container:hover .gallery-overlay {
+    opacity: 1;
+}
+
+.gallery-container:hover .gallery-img {
+    transform: scale(1.1);
+}
+
+.gallery-text {
+    color: white;
+    font-size: 1.2rem;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+}
+
+.gallery-container:hover .gallery-text {
+    transform: translateY(0);
+}
+
+/* Estilos de Ponentes */
+.speaker-card {
+    background-color: var(--dark-primary);
+    border: 1px solid var(--gold);
+    padding: 30px;
+    text-align: center;
+    margin-bottom: 30px;
+    transition: all 0.3s ease;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.speaker-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(197, 164, 126, 0.2);
+}
+
+.speaker-img-container {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin: 0 auto 20px;
+    overflow: hidden;
+    border-radius: 50%;
+    border: 3px solid var(--gold);
+}
+
+.speaker-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.5s ease;
+}
+
+.speaker-card:hover .speaker-img {
+    transform: scale(1.1);
 }
 
 /* Estilos de Sección */
@@ -79,30 +203,91 @@ body {
     box-shadow: 0 5px 15px rgba(197, 164, 126, 0.3);
 }
 
-/* Estilos de Modal */
 .modal-content {
-    background-color: var(--dark-secondary);
-    border: 1px solid var(--gold);
-    border-radius: 10px;
-    color: white;
+background-color: var(--dark-secondary);
+border: 1px solid var(--gold);
+border-radius: 10px;
+color: white;
 }
 
 .modal-header {
-    border-bottom: 1px solid var(--gold);
-    padding: 1.5rem;
+border-bottom: 1px solid var(--gold);
+padding: 1.5rem;
 }
 
 .modal-footer {
-    border-top: 1px solid var(--gold);
-    padding: 1.5rem;
+border-top: 1px solid var(--gold);
+padding: 1.5rem;
 }
 
 .modal-title {
-    color: var(--gold);
-    font-weight: bold;
+color: var(--gold);
+font-weight: bold;
 }
 
 .close {
-    color: var(--gold);
-    opacity: 1;
+color: var(--gold);
+opacity: 1;
+}
+
+.ticket-type {
+background-color: var(--dark-primary);
+border: 1px solid var(--gold);
+border-radius: 8px;
+padding: 20px;
+margin-bottom: 20px;
+transition: all 0.3s ease;
+}
+
+.ticket-type:hover {
+transform: translateY(-5px);
+box-shadow: 0 5px 15px rgba(197, 164, 126, 0.2);
+}
+
+.ticket-price {
+color: var(--gold);
+font-size: 1.5rem;
+font-weight: bold;
+}
+
+.quantity-control {
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 10px;
+}
+
+.quantity-btn {
+background-color: var(--gold);
+border: none;
+color: white;
+width: 30px;
+height: 30px;
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+cursor: pointer;
+transition: all 0.3s ease;
+}
+
+.quantity-btn:hover {
+background-color: var(--gold-hover);
+}
+
+.quantity-display {
+font-size: 1.2rem;
+min-width: 40px;
+text-align: center;
+}
+
+.total-section {
+background-color: var(--dark-primary);
+padding: 20px;
+border-radius: 8px;
+margin-top: 20px;
+}
+
+.paypal-button-container {
+margin-top: 20px;
 }

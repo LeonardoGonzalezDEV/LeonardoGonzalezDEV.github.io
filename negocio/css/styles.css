@@ -1,0 +1,33 @@
+
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f1de;
+}
+
+.coffee-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: fadeIn 1s ease;
+}
+
+.coffee-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.hero-section {
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                url('https://images.unsplash.com/photo-1525648199074-cee30ba79a4a');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 150px 0;
+    text-align: center;
+    animation: fadeIn 1.5s ease;
+}
+
+.section-title {
+    border-bottom: 3px solid #6f1d1b;
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+}

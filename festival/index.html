@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Golden Cinema Festival 2025</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #FFD700;
+            --dark: #121212;
+            --darker: #0A0A0A;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--darker) 0%, #1a1a1a 100%);
+            color: #fff;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .navbar {
+            background: linear-gradient(to bottom, rgba(10, 10, 10, 0.95), rgba(10, 10, 10, 0.8));
+            border-bottom: 1px solid var(--gold);
+            backdrop-filter: blur(10px);
+        }
+
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .section {
+            padding: 100px 0;
+            border-bottom: 1px solid var(--gold);
+            background: linear-gradient(45deg, rgba(18, 18, 18, 0.95), rgba(10, 10, 10, 0.95));
+        }
+
+        .section-dark {
+            background: linear-gradient(to right, var(--darker), #151515);
+        }
+
+        .gold-text {
+            background: linear-gradient(to right, var(--gold), #FFA500);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .btn-gold {
+            background: linear-gradient(45deg, var(--gold), #FFA500);
+            color: var(--dark);
+            border: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-gold:hover {
+            background: linear-gradient(45deg, #FFA500, var(--gold));
+            transform: scale(1.05);
+        }
+
+        .card {
+            background: linear-gradient(135deg, rgba(18, 18, 18, 0.95), rgba(10, 10, 10, 0.95));
+            border: 1px solid var(--gold);
+            transition: transform 0.3s ease;
+            color:white;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(to right, transparent, var(--gold), transparent);
+        }
+
+        .modal-content {
+            background: linear-gradient(135deg, var(--darker) 0%, #151515 100%);
+            border: 1px solid var(--gold);
+        }
+
+        .form-control {
+            background: linear-gradient(to right, var(--dark), #151515);
+            border: 1px solid var(--gold);
+            color: #fff;
+        }
+
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            width: 2px;
+            background: linear-gradient(to bottom, transparent, var(--gold), transparent);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -1px;
+        }
+
+        footer {
+            background: linear-gradient(to top, var(--darker), #151515);
+            border-top: 1px solid var(--gold);
+            padding: 30px 0;
+        }
+
+        .feature-image {
+            height: 250px;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand gold-text" href="#">Golden Cinema Festival</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#inicio">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#peliculas">Películas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#horarios">Horarios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#registro">Registro</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="container">
+            <h1 class="display-1 mb-4" data-aos="fade-down">Golden Cinema Festival 2025</h1>
+            <p class="lead mb-4" data-aos="fade-up">Celebrando la excelencia en el cine independiente</p>
+            <button class="btn btn-gold btn-lg" data-aos="zoom-in" data-bs-toggle="modal" data-bs-target="#registroModal">
+                Reserva tu Entrada
+            </button>
+        </div>
+    </section>
+
+    <!-- Películas Section -->
+    <section id="peliculas" class="section">
+        <div class="container">
+            <h2 class="text-center mb-5 gold-text" data-aos="fade-up">Películas Destacadas</h2>
+            <div class="row g-4">
+                <div class="col-md-4" data-aos="fade-up">
+                    <div class="card">
+                        <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80" class="card-img-top feature-image" alt="Película 1">
+                        <div class="card-body">
+                            <h5 class="card-title gold-text">El Silencio del Amanecer</h5>
+                            <p class="card-text">Drama emotivo sobre una familia que enfrenta cambios dramáticos en un pequeño pueblo costero. Dir. Marina Sánchez</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card">
+                        <img src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80" class="card-img-top feature-image" alt="Película 2">
+                        <div class="card-body">
+                            <h5 class="card-title gold-text">Memorias del Futuro</h5>
+                            <p class="card-text">Ciencia ficción independiente que explora temas de memoria y consciencia. Dir. Carlos Ruiz</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card">
+                        <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80" class="card-img-top feature-image" alt="Película 3">
+                        <div class="card-body">
+                            <h5 class="card-title gold-text">La Última Función</h5>
+                            <p class="card-text">Documental sobre el último cine de película en una ciudad moderna. Dir. Ana López</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Horarios Section -->
+    <section id="horarios" class="section section-dark">
+        <div class="container">
+            <h2 class="text-center mb-5 gold-text" data-aos="fade-up">Programación</h2>
+            <div class="timeline">
+                <div class="row mb-4" data-aos="fade-right">
+                    <div class="col-md-6 text-end">
+                        <h4 class="gold-text">16:00 - El Silencio del Amanecer</h4>
+                        <p>Sala Principal - Premier Mundial</p>
+                    </div>
+                </div>
+                <div class="row mb-4" data-aos="fade-left">
+                    <div class="col-md-6 offset-md-6">
+                        <h4 class="gold-text">19:00 - Memorias del Futuro</h4>
+                        <p>Sala Experimental - Q&A con Director</p>
+                    </div>
+                </div>
+                <div class="row" data-aos="fade-right">
+                    <div class="col-md-6 text-end">
+                        <h4 class="gold-text">21:30 - La Última Función</h4>
+                        <p>Sala Documental - Estreno Nacional</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Registro Modal -->
+    <div class="modal fade" id="registroModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title gold-text">Reserva tu Entrada</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="registroForm">
+                        <div class="mb-3">
+                            <label for="nombre" class="form-label">Nombre Completo</label>
+                            <input type="text" class="form-control" id="nombre" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="telefono" class="form-label">Teléfono</label>
+                            <input type="tel" class="form-control" id="telefono" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="pelicula" class="form-label">Película</label>
+                            <select class="form-control" id="pelicula" required>
+                                <option value="">Selecciona una película</option>
+                                <option value="silencio">El Silencio del Amanecer</option>
+                                <option value="memorias">Memorias del Futuro</option>
+                                <option value="ultima">La Última Función</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="tipo-entrada" class="form-label">Tipo de Entrada</label>
+                            <select class="form-control" id="tipo-entrada" required>
+                                <option value="">Selecciona una opción</option>
+                                <option value="general">General - $15</option>
+                                <option value="vip">VIP (Incluye Q&A) - $25</option>
+                                <option value="festival">Pase Festival Completo - $50</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-gold w-100">Confirmar Reserva</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="text-center">
+        <div class="container">
+            <p class="mb-0">&copy; 2025 Golden Cinema Festival. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        // Inicializar AOS
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Manejo del formulario
+        document.getElementById('registroForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('¡Reserva realizada con éxito! Te enviaremos un email con los detalles.');
+            const modal = bootstrap.Modal.getInstance(document.getElementById('registroModal'));
+            modal.hide();
+            this.reset();
+        });
+
+        // Navbar scroll
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 50) {
+                document.querySelector('.navbar').style.padding = '0.5rem 1rem';
+            } else {
+                document.querySelector('.navbar').style.padding = '1rem';
+            }
+        });
+    </script>
+</body>
+</html>

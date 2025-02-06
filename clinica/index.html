@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clínica MediVida - Centro Médico de Excelencia</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #1a4f8b;
+            --secondary-color: #2eaae1;
+            --accent-color: #00bcd4;
+            --text-color: #2c3e50;
+            --light-bg: #f8fafc;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            color: var(--text-color);
+        }
+
+        .hero-section {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+                        url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d') center/cover;
+            height: 100vh;
+            color: white;
+        }
+
+        .gradient-bg {
+            background: linear-gradient(120deg, var(--primary-color), var(--secondary-color));
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-card {
+            transition: all 0.4s ease;
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+
+        .service-card .card-img-overlay {
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover .card-img-overlay {
+            background: linear-gradient(to top, var(--primary-color), transparent);
+        }
+
+        .doctor-card {
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .doctor-card img {
+            transition: transform 0.5s ease;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .doctor-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .doctor-social {
+            position: absolute;
+            bottom: -40px;
+            left: 0;
+            right: 0;
+            transition: all 0.3s ease;
+            background: linear-gradient(to top, var(--primary-color), transparent);
+        }
+
+        .doctor-card:hover .doctor-social {
+            bottom: 0;
+        }
+
+        .contact-info {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border-radius: 15px;
+        }
+
+        .custom-shape {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+        }
+
+        .emergency-banner {
+            background: linear-gradient(90deg, #ff4b4b, #ff6b6b);
+            color: white;
+            padding: 0.5rem 0;
+        }
+
+        .appointment-form {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .stats-card {
+            text-align: center;
+            padding: 2rem;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .stats-card i {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 1rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .testimonial-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1rem;
+        }
+
+        .insurance-section {
+            background: var(--light-bg);
+            padding: 4rem 0;
+        }
+
+        .insurance-logo {
+            height: 60px;
+            object-fit: contain;
+            filter: grayscale(100%);
+            transition: all 0.3s ease;
+        }
+
+        .insurance-logo:hover {
+            filter: grayscale(0%);
+            transform: scale(1.1);
+        }
+
+        .nav-link {
+            position: relative;
+            color: white !important;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--accent-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .glow-button {
+            background: linear-gradient(45deg, var(--secondary-color), var(--accent-color));
+            border: none;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        .glow-button:hover {
+            box-shadow: 0 0 20px var(--accent-color);
+            transform: scale(1.05);
+        }
+
+        .floating-whatsapp {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        .specialties-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            padding: 2rem 0;
+        }
+
+        .specialty-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .specialty-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .specialty-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Emergency Banner -->
+    <div class="emergency-banner">
+        <div class="container text-center">
+            <strong>Emergencias 24/7:</strong> Llame al <a href="tel:911" class="text-white">911</a> o visite nuestra sala de emergencias
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="https://rsvhospital.com/wp-content/uploads/2021/12/Ortho.png" alt="MediVida Logo" height="40">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#inicio">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#servicios">Servicios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#especialidades">Especialidades</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#equipo">Equipo</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#testimonios">Testimonios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contacto">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero-section d-flex align-items-center">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <h1 class="display-3 fw-bold mb-4">Tu salud es nuestra prioridad</h1>
+                    <p class="lead mb-4">Contamos con la más avanzada tecnología y los mejores especialistas para cuidar de ti y tu familia.</p>
+                    <button class="glow-button me-3">Agenda tu cita</button>
+                    <button class="btn btn-outline-light btn-lg">Conoce más</button>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="appointment-form glass-card">
+                        <h3 class="text-dark mb-4">Agenda tu cita</h3>
+                        <form>
+                            <div class="mb-3">
+                                <input type="text" class="form-control" placeholder="Nombre completo">
+                            </div>
+                            <div class="mb-3">
+                                <input type="email" class="form-control" placeholder="Email">
+                            </div>
+                            <div class="mb-3">
+                                <input type="tel" class="form-control" placeholder="Teléfono">
+                            </div>
+                            <div class="mb-3">
+                                <select class="form-select">
+                                    <option selected>Seleccione especialidad</option>
+                                    <option>Medicina General</option>
+                                    <option>Cardiología</option>
+                                    <option>Pediatría</option>
+                                    <option>Ginecología</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <input type="date" class="form-control">
+                            </div>
+                            <button type="submit" class="glow-button w-100">Solicitar cita</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-3" data-aos="fade-up">
+                    <div class="stats-card">
+                        <i class="fas fa-user-md"></i>
+                        <h3 class="h2 mb-2">50+</h3>
+                        <p class="text-muted">Especialistas</p>
+                    </div>
+                </div>
+                <div class="col-md-3" data-aos="fade-up" data-aos-delay="100">
+                    <div class="stats-card">
+                        <i class="fas fa-hospital-user"></i>
+                        <h3 class="h2 mb-2">10,000+</h3>
+                        <p class="text-muted">Pacientes Atendidos</p>
+                    </div>
+                </div>
+                <div class="col-md-3" data-aos="fade-up" data-aos-delay="200">
+                    <div class="stats-card">
+                        <i class="fas fa-star"></i>
+                        <h3 class="h2 mb-2">98%</h3>
+                        <p class="text-muted">Satisfacción</p>
+                    </div>
+                </div>
+                <div class="col-md-3" data-aos="fade-up" data-aos-delay="300">
+                    <div class="stats-card">
+                        <i class="fas fa-calendar-check"></i>
+                        <h3 class="h2 mb-2">15</h3>
+                        <p class="text-muted">Años de Experiencia</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Servicios -->
+    <section id="servicios" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5" data-aos="fade-up">Nuestros Servicios</h2>
+            <div class="row g-4">
+                <div class="col-md-4" data-aos="fade-up">
+                    <div class="card service-card text-white">
+                        <img src="https://images.unsplash.com/photo-1504813184591-01572f98c85f" class="card-img" alt="Medicina General">
+                        <div class="card-img-overlay d-flex flex-column justify-content-end">
+                            <h5 class="card-title">Medicina General</h5>
+                            <p class="card-text">Atención médica integral para toda la familia.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card service-card text-white">
+                        <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118" class="card-img" alt="Especialidades">
+                        <div class="card-img-overlay d-flex flex-column justify-content-end">
+                            <h5 class="card-title">Especialidades</h5>
+                            <p class="card-text">Atención especializada en múltiples áreas médicas.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card service-card text-white">
+                        <img src="https://images.unsplash.com/photo-1581594693702-fbdc51b2763b" class="card-img" alt="Laboratorio">
+                        <div class="card-img-overlay d-flex flex-column justify-content-end">
+                            <h5 class="card-title">Laboratorio Clínico</h5>
+                            <p class="card-text">Análisis clínicos con tecnología de última generación.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Especialidades -->
+    <section id="especialidades" class="py-5 gradient-bg text-white">
+        <div class="container">
+            <h2 class="text-center mb-5" data-aos="fade-up">Nuestras Especialidades</h2>
+            <div class="specialties-grid">
+                <div class="specialty-item bg-white text-dark" data-aos="fade-up">
+                    <i class="fas fa-heart specialty-icon"></i>
+                    <h4>Cardiología</h4>
+                    <p>Diagnóstico y tratamiento de enfermedades cardíacas</p>
+                </div>
+                <div class="specialty-item bg-white text-dark" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fas fa-baby specialty-icon"></i>
+                    <h4>Pediatría</h4>
+                    <p>Cuidado especializado para niños y adolescentes</p>
+                </div>
+                <div class="specialty-item bg-white text-dark" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fas fa-brain specialty-icon"></i>
+                    <h4>Neurología</h4>
+                    <p>Tratamiento de trastornos del sistema nervioso</p>
+                </div>
+                <div class="specialty-item bg-white text-dark" data-aos="fade-up" data-aos-delay="300">
+                    <i class="fas fa-bone specialty-icon"></i>
+                    <h4>Traumatología</h4>
+                    <p>Especialistas en sistema músculo-esquelético</p>
+                </div>
+                <div class="specialty-item bg-white text-dark" data-aos="fade-up" data-aos-delay="400">
+                    <i class="fas fa-venus specialty-icon"></i>
+                    <h4>Ginecología</h4>
+                    <p>Salud integral de la mujer</p>
+                </div>
+                <div class="specialty-item bg-white text-dark" data-aos="fade-up" data-aos-delay="500">
+                    <i class="fas fa-eye specialty-icon"></i>
+                    <h4>Oftalmología</h4>
+                    <p>Cuidado completo de la salud visual</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Equipo Médico -->
+    <section id="equipo" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5" data-aos="fade-up">Nuestro Equipo Médico</h2>
+            <div class="row g-4">
+                <div class="col-md-3" data-aos="fade-up">
+                    <div class="doctor-card position-relative">
+                        <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d" alt="Doctor">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Dr. Juan Pérez</h5>
+                            <p class="card-text text-muted">Cardiología</p>
+                            <div class="doctor-social p-3">
+                                <a href="#" class="text-white mx-2"><i class="fab fa-linkedin"></i></a>
+                                <a href="#" class="text-white mx-2"><i class="fab fa-twitter"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3" data-aos="fade-up" data-aos-delay="100">
+                    <div class="doctor-card position-relative">
+                        <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f" alt="Doctora">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Dra. María González</h5>
+                            <p class="card-text text-muted">Pediatría</p>
+                            <div class="doctor-social p-3">
+                                <a href="#" class="text-white mx-2"><i class="fab fa-linkedin"></i></a>
+                                <a href="#" class="text-white mx-2"><i class="fab fa-twitter"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3" data-aos="fade-up" data-aos-delay="200">
+                    <div class="doctor-card position-relative">
+                        <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d" alt="Doctor">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Dr. Carlos Rodríguez</h5>
+                            <p class="card-text text-muted">Neurología</p>
+                            <div class="doctor-social p-3">
+                                <a href="#" class="text-white mx-2"><i class="fab fa-linkedin"></i></a>
+                                <a href="#" class="text-white mx-2"><i class="fab fa-twitter"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3" data-aos="fade-up" data-aos-delay="300">
+                    <div class="doctor-card position-relative">
+                        <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2" alt="Doctora">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Dra. Ana Martínez</h5>
+                            <p class="card-text text-muted">Oftalmología</p>
+                            <div class="doctor-social p-3">
+                                <a href="#" class="text-white mx-2"><i class="fab fa-linkedin"></i></a>
+                                <a href="#" class="text-white mx-2"><i class="fab fa-twitter"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonios -->
+    <section id="testimonios" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5" data-aos="fade-up">Lo que dicen nuestros pacientes</h2>
+            <div class="row">
+                <div class="col-md-4" data-aos="fade-up">
+                    <div class="testimonial-card">
+                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80" class="testimonial-img" alt="Paciente">
+                        <h5>Laura Sánchez</h5>
+                        <p class="text-muted mb-3">Paciente de Cardiología</p>
+                        <p>"Excelente atención y profesionalismo. El Dr. Pérez me explicó todo detalladamente y me sentí muy bien atendida."</p>
+                        <div class="text-warning">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="testimonial-card">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d" class="testimonial-img" alt="Paciente">
+                        <h5>Pedro Ramírez</h5>
+                        <p class="text-muted mb-3">Paciente de Neurología</p>
+                        <p>"Las instalaciones son modernas y el personal muy amable. Mi experiencia fue muy positiva desde el primer momento."</p>
+                        <div class="text-warning">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="testimonial-card">
+                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2" class="testimonial-img" alt="Paciente">
+                        <h5>María Torres</h5>
+                        <p class="text-muted mb-3">Paciente de Pediatría</p>
+                        <p>"La Dra. González es excelente con los niños. Mi hijo se sintió muy cómodo durante toda la consulta."</p>
+                        <div class="text-warning">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seguros -->
+    <section class="insurance-section">
+        <div class="container">
+            <h2 class="text-center mb-5" data-aos="fade-up">Trabajamos con las principales aseguradoras</h2>
+            <div class="row align-items-center justify-content-center">
+                <div class="col-md-2 col-6 mb-4" data-aos="fade-up">
+                    <img src="https://www.brandemia.org/wp-content/uploads/2011/10/cigna_logo_principal_jpg.jpg" alt="Seguro 1" class="insurance-logo w-100">
+                </div>
+                <div class="col-md-2 col-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <img src="https://www.brandemia.org/wp-content/uploads/2011/10/cigna_logo_principal_jpg.jpg" alt="Seguro 2" class="insurance-logo w-100">
+                </div>
+                <div class="col-md-2 col-6 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <img src="https://www.brandemia.org/wp-content/uploads/2011/10/cigna_logo_principal_jpg.jpg" alt="Seguro 3" class="insurance-logo w-100">
+                </div>
+                <div class="col-md-2 col-6 mb-4" data-aos="fade-up" data-aos-delay="300">
+                    <img src="https://www.brandemia.org/wp-content/uploads/2011/10/cigna_logo_principal_jpg.jpg" alt="Seguro 4" class="insurance-logo w-100">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contacto" class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <div class="contact-info p-4">
+                        <h2 class="mb-4">Contacto</h2>
+                        <div class="mb-4">
+                            <h5><i class="fas fa-map-marker-alt me-2"></i> Ubicación</h5>
+                            <p>Av. Principal 123, Ciudad Médica<br>CP 12345</p>
+                        </div>
+                        <div class="mb-4">
+                            <h5><i class="fas fa-phone me-2"></i> Teléfonos</h5>
+                            <p>Citas: +1234567890<br>Emergencias: +1234567899</p>
+                        </div>
+                        <div class="mb-4">
+                            <h5><i class="fas fa-clock me-2"></i> Horario</h5>
+                            <p>Lunes a Viernes: 8:00 AM - 8:00 PM<br>Sábados: 8:00 AM - 2:00 PM</p>
+                        </div>
+                        <div class="mb-4">
+                            <h5><i class="fas fa-envelope me-2"></i> Email</h5>
+                            <p>contacto@medivida.com</p>
+                        </div>
+                        <div class="social-links">
+                            <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="text-white"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="glass-card p-4">
+                        <h3 class="mb-4">Envíanos un mensaje</h3>
+                        <form>
+                            <div class="mb-3">
+                                <input type="text" class="form-control" placeholder="Nombre completo">
+                            </div>
+                            <div class="mb-3">
+                                <input type="email" class="form-control" placeholder="Email">
+                            </div>
+                            <div class="mb-3">
+                                <input type="tel" class="form-control" placeholder="Teléfono">
+                            </div>
+                            <div class="mb-3">
+                                <select class="form-select">
+                                    <option selected>Asunto</option>
+                                    <option>Consulta general</option>
+                                    <option>Citas</option>
+                                    <option>Información de seguros</option>
+                                    <option>Otros</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <textarea class="form-control" rows="4" placeholder="Mensaje"></textarea>
+                            </div>
+                            <button type="submit" class="glow-button w-100">Enviar mensaje</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="gradient-bg text-white py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <h4 class="mb-4">MediVida</h4>
+                    <p>Comprometidos con tu salud y bienestar desde hace más de 15 años. Tecnología de vanguardia y atención personalizada.</p>
+                    <div class="social-links mt-3">
+                        <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                    <h5 class="mb-4">Enlaces rápidos</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#inicio" class="text-white text-decoration-none">Inicio</a></li>
+                        <li class="mb-2"><a href="#servicios" class="text-white text-decoration-none">Servicios</a></li>
+                        <li class="mb-2"><a href="#especialidades" class="text-white text-decoration-none">Especialidades</a></li>
+                        <li class="mb-2"><a href="#equipo" class="text-white text-decoration-none">Equipo</a></li>
+                        <li class="mb-2"><a href="#contacto" class="text-white text-decoration-none">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h5 class="mb-4">Servicios principales</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2">Consultas médicas</li>
+                        <li class="mb-2">Laboratorio clínico</li>
+                        <li class="mb-2">Urgencias 24/7</li>
+                        <li class="mb-2">Imagenología</li>
+                        <li class="mb-2">Farmacia</li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h5 class="mb-4">Newsletter</h5>
+                    <p>Suscríbete para recibir noticias y actualizaciones.</p>
+                    <form class="mt-3">
+                        <div class="input-group mb-3">
+                            <input type="email" class="form-control" placeholder="Tu email">
+                            <button class="btn btn-light" type="button">Suscribir</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Copyright -->
+    <div class="bg-dark text-white py-3">
+        <div class="container text-center">
+            <p class="mb-0">&copy; 2025 MediVida. Todos los derechos reservados.</p>
+        </div>
+    </div>
+
+    <!-- WhatsApp flotante -->
+    <a href="https://wa.me/1234567890" class="floating-whatsapp" target="_blank">
+        <div class="btn btn-success rounded-circle p-3">
+            <i class="fab fa-whatsapp fa-2x"></i>
+        </div>
+    </a>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        // Inicializar AOS
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+
+        // Cambiar navbar al hacer scroll
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(26, 79, 139, 0.95)';
+                navbar.classList.add('shadow');
+            } else {
+                navbar.style.background = 'transparent';
+                navbar.classList.remove('shadow');
+            }
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Validación de formularios
+        const forms = document.querySelectorAll('form');
+        forms.forEach(form => {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                // Aquí iría la lógica de validación y envío
+                alert('Formulario enviado correctamente');
+                form.reset();
+            });
+        });
+
+        // Animación de contador para estadísticas
+        const stats = document.querySelectorAll('.stats-card h3');
+        const observerOptions = {
+            threshold: 0.5
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const target = entry.target;
+                    const value = parseInt(target.textContent);
+                    let current = 0;
+                    const increment = value / 50;
+                    const timer = setInterval(() => {
+                        current += increment;
+                        if (current >= value) {
+                            target.textContent = value + (target.textContent.includes('+') ? '+' : '');
+                            clearInterval(timer);
+                        } else {
+                            target.textContent = Math.floor(current) + (target.textContent.includes('+') ? '+' : '');
+                        }
+                    }, 20);
+                    observer.unobserve(target);
+                }
+            });
+        }, observerOptions);
+
+        stats.forEach(stat => observer.observe(stat));
+    </script>
+</body>
+</html>

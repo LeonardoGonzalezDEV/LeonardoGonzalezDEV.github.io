@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clínica MediSalud - Centro Médico de Excelencia</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2C3E50;
+            --secondary-color: #3498DB;
+            --accent-color: #E74C3C;
+            --light-blue: #EBF5FB;
+            --dark-blue: #1B4F72;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 200px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card {
+            transition: all 0.3s ease;
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+
+        .service-card img {
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .doctor-card {
+            transition: all 0.3s ease;
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .doctor-card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+
+        .doctor-card img {
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .navbar {
+            transition: all 0.3s ease;
+            padding: 1rem 0;
+        }
+
+        .navbar.scrolled {
+            background: rgba(255, 255, 255, 0.95) !important;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 0.5rem 0;
+        }
+
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color) !important;
+        }
+
+        .contact-info {
+            background: linear-gradient(135deg, var(--dark-blue), var(--secondary-color));
+            color: white;
+            border-radius: 15px;
+            margin: 20px 0;
+        }
+
+        .features-section {
+            background-color: var(--light-blue);
+        }
+
+        .feature-box {
+            padding: 30px;
+            text-align: center;
+            background: white;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .feature-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+        }
+
+        .testimonial-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 20px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .testimonial-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
+
+        .emergency-banner {
+            background: linear-gradient(to right, var(--accent-color), #C0392B);
+            color: white;
+            padding: 15px 0;
+        }
+
+        .appointment-form {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .stats-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 80px 0;
+        }
+
+        .stat-box {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .insurance-section {
+            background-color: var(--light-blue);
+        }
+
+        .insurance-logo {
+            max-width: 150px;
+            filter: grayscale(100%);
+            transition: all 0.3s ease;
+        }
+
+        .insurance-logo:hover {
+            filter: grayscale(0%);
+        }
+
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 150px 0;
+            }
+            
+            .doctor-card img {
+                height: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Emergency Banner -->
+    <div class="emergency-banner">
+        <div class="container text-center">
+            <i class="fas fa-phone-alt me-2"></i> Emergencias 24/7: <strong>911</strong> | 
+            <i class="fas fa-ambulance ms-3 me-2"></i> Ambulancia: <strong>+1 234 567 890</strong>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-transparent fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-heartbeat me-2"></i>MediSalud
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#inicio">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#servicios">Servicios</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#equipo">Equipo</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#testimonios">Testimonios</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+                    <li class="nav-item"><a class="btn btn-primary ms-2" href="#citas">Agendar Cita</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8" data-aos="fade-right">
+                    <h1 class="display-4 mb-4">Su salud es nuestra prioridad</h1>
+                    <p class="lead mb-4">Atención médica de excelencia con tecnología de vanguardia y profesionales altamente calificados.</p>
+                    <a href="#citas" class="btn btn-primary btn-lg me-3">Agendar Cita</a>
+                    <a href="#servicios" class="btn btn-outline-light btn-lg">Nuestros Servicios</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4" data-aos="fade-up">
+                    <div class="feature-box">
+                        <i class="fas fa-clock feature-icon"></i>
+                        <h4>Atención 24/7</h4>
+                        <p>Servicio de emergencias disponible las 24 horas, todos los días del año.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="feature-box">
+                        <i class="fas fa-user-md feature-icon"></i>
+                        <h4>Especialistas Certificados</h4>
+                        <p>Equipo médico con amplia experiencia y certificaciones internacionales.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-box">
+                        <i class="fas fa-microscope feature-icon"></i>
+                        <h4>Tecnología Avanzada</h4>
+                        <p>Equipamiento médico de última generación para diagnósticos precisos.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="servicios" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5" data-aos="fade-up">Nuestros Servicios</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card service-card">
+                        <img src="https://images.unsplash.com/photo-1581056771107-24ca5f033842?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" class="card-img-top" alt="Medicina General">
+                        <div class="card-body">
+                            <h5 class="card-title">Medicina General</h5>
+                            <p class="card-text">Atención médica integral para toda la familia con los más altos estándares de calidad.</p>
+                            <a href="#" class="btn btn-outline-primary">Más información</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card service-card">
+                        <img src="https://images.unsplash.com/photo-1579684453423-f84349ef60b0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" class="card-img-top" alt="Pediatría">
+                        <div class="card-body">
+                            <h5 class="card-title">Pediatría</h5>
+                            <p class="card-text">Cuidado especializado para niños y adolescentes con un enfoque amigable y profesional.</p>
+                            <a href="#" class="btn btn-outline-primary">Más información</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card service-card">
+                        <img src="https://images.unsplash.com/photo-1578496480157-697fc14d2e55?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" class="card-img-top" alt="Especialidades">
+                        <div class="card-body">
+                            <h5 class="card-title">Cardiología</h5>
+                            <p class="card-text">Diagnóstico y tratamiento de enfermedades cardíacas con tecnología de vanguardia.</p>
+                            <a href="#" class="btn btn-outline-primary">Más información</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-6 mb-4" data-aos="fade-up">
+                    <div class="stat-box">
+                        <div class="stat-number">15+</div>
+                        <div>Años de Experiencia</div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="stat-box">
+                        <div class="stat-number">50K+</div>
+                        <div>Pacientes Atendidos</div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="stat-box">
+                        <div class="stat-number">30+</div>
+                        <div>Especialistas</div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6 mb-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="stat-box">
+                        <div class="stat-number">98%</div>
+                        <div>Satisfacción</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="equipo" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5" data-aos="fade-up">
+                <h2 class="text-center mb-5" data-aos="fade-up">Nuestro Equipo Médico</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card doctor-card">
+                        <img src="https://images.unsplash.com/photo-1537368910025-700350fe46c7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" class="card-img-top" alt="Doctor">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Dr. Juan Pérez</h5>
+                            <p class="text-muted">Director Médico - Medicina Interna</p>
+                            <p class="card-text">Especialista con más de 15 años de experiencia en medicina interna y gestión hospitalaria.</p>
+                            <div class="social-links mt-3">
+                                <a href="#" class="text-primary mx-2"><i class="fab fa-linkedin"></i></a>
+                                <a href="#" class="text-primary mx-2"><i class="fab fa-twitter"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card doctor-card">
+                        <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" class="card-img-top" alt="Doctora">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Dra. María González</h5>
+                            <p class="text-muted">Pediatra</p>
+                            <p class="card-text">Especialista en pediatría con enfoque en desarrollo infantil y medicina preventiva.</p>
+                            <div class="social-links mt-3">
+                                <a href="#" class="text-primary mx-2"><i class="fab fa-linkedin"></i></a>
+                                <a href="#" class="text-primary mx-2"><i class="fab fa-twitter"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card doctor-card">
+                        <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" class="card-img-top" alt="Doctor">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Dr. Carlos Rodríguez</h5>
+                            <p class="text-muted">Cardiólogo</p>
+                            <p class="card-text">Especialista en cardiología intervencionista y enfermedades cardiovasculares.</p>
+                            <div class="social-links mt-3">
+                                <a href="#" class="text-primary mx-2"><i class="fab fa-linkedin"></i></a>
+                                <a href="#" class="text-primary mx-2"><i class="fab fa-twitter"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonios" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5" data-aos="fade-up">Lo que dicen nuestros pacientes</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4" data-aos="fade-up">
+                    <div class="testimonial-card">
+                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80" class="testimonial-img" alt="Paciente">
+                        <h5>Ana García</h5>
+                        <p class="text-muted">Paciente de Pediatría</p>
+                        <p>"Excelente atención para mi hijo. El personal es muy profesional y amable. Totalmente recomendado."</p>
+                        <div class="text-warning">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="testimonial-card">
+                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80" class="testimonial-img" alt="Paciente">
+                        <h5>Roberto Martínez</h5>
+                        <p class="text-muted">Paciente de Cardiología</p>
+                        <p>"Gracias al Dr. Rodríguez y su equipo por el excelente tratamiento y seguimiento de mi condición cardíaca."</p>
+                        <div class="text-warning">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="testimonial-card">
+                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80" class="testimonial-img" alt="Paciente">
+                        <h5>Laura Sánchez</h5>
+                        <p class="text-muted">Paciente de Medicina General</p>
+                        <p>"La atención es rápida y eficiente. Las instalaciones son modernas y muy limpias. Altamente recomendado."</p>
+                        <div class="text-warning">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Insurance Section -->
+    <section class="insurance-section py-5">
+        <div class="container">
+            <h2 class="text-center mb-5" data-aos="fade-up">Seguros Médicos Aceptados</h2>
+            <div class="row align-items-center justify-content-center">
+                <div class="col-md-2 col-6 mb-4" data-aos="fade-up">
+                    <img src="https://img.freepik.com/vector-premium/disenos-logotipos-seguros-familiares-logotipo-proteccion-medica-salud_1093924-89.jpg?semt=ais_hybrid" class="img-fluid insurance-logo" alt="Seguro 1">
+                </div>
+                <div class="col-md-2 col-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <img src="https://img.freepik.com/vector-premium/disenos-logotipos-seguros-familiares-logotipo-proteccion-medica-salud_1093924-89.jpg?semt=ais_hybrid" class="img-fluid insurance-logo" alt="Seguro 2">
+                </div>
+                <div class="col-md-2 col-6 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <img src="https://img.freepik.com/vector-premium/disenos-logotipos-seguros-familiares-logotipo-proteccion-medica-salud_1093924-89.jpg?semt=ais_hybrid" class="img-fluid insurance-logo" alt="Seguro 3">
+                </div>
+                <div class="col-md-2 col-6 mb-4" data-aos="fade-up" data-aos-delay="300">
+                    <img src="https://img.freepik.com/vector-premium/disenos-logotipos-seguros-familiares-logotipo-proteccion-medica-salud_1093924-89.jpg?semt=ais_hybrid" class="img-fluid insurance-logo" alt="Seguro 4">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Appointment Section -->
+    <section id="citas" class="py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 mb-4" data-aos="fade-right">
+                    <h2 class="mb-4">Agenda tu cita</h2>
+                    <p class="mb-4">Complete el formulario y nos pondremos en contacto con usted para confirmar su cita.</p>
+                    <form class="appointment-form">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <input type="text" class="form-control" placeholder="Nombre">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <input type="text" class="form-control" placeholder="Apellido">
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <input type="email" class="form-control" placeholder="Email">
+                        </div>
+                        <div class="mb-3">
+                            <input type="tel" class="form-control" placeholder="Teléfono">
+                        </div>
+                        <div class="mb-3">
+                            <select class="form-select">
+                                <option selected>Seleccione especialidad</option>
+                                <option>Medicina General</option>
+                                <option>Pediatría</option>
+                                <option>Cardiología</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <input type="date" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <textarea class="form-control" rows="3" placeholder="Mensaje/Síntomas"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Solicitar Cita</button>
+                    </form>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="contact-info p-4">
+                        <h3 class="mb-4">Información de Contacto</h3>
+                        <p><i class="fas fa-map-marker-alt me-2"></i> Av. Principal 123, Ciudad</p>
+                        <p><i class="fas fa-phone me-2"></i> +1 234 567 890</p>
+                        <p><i class="fas fa-envelope me-2"></i> info@clinicamedisalud.com</p>
+                        <h4 class="mt-4 mb-3">Horario de Atención</h4>
+                        <p><i class="fas fa-clock me-2"></i> Lunes a Viernes: 8:00 AM - 8:00 PM</p>
+                        <p><i class="fas fa-clock me-2"></i> Sábados: 9:00 AM - 2:00 PM</p>
+                        <p><i class="fas fa-exclamation-circle me-2"></i> Emergencias: 24/7</p>
+                        <div class="mt-4">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.952912260219!2d3.375295414770757!3d6.5276316452784755!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b8b2ae68280c1%3A0xdc9e87a367c3d9cb!2sLagos!5e0!3m2!1sen!2sng!4v1628348285456!5m2!1sen!2sng" 
+                                width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h5>MediSalud</h5>
+                    <p>Comprometidos con su salud y bienestar desde hace más de 15 años.</p>
+                    <div class="social-links">
+                        <a href="#" class="text-light me-3"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-light me-3"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-light me-3"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-light me-3"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5>Enlaces Rápidos</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#inicio" class="text-light">Inicio</a></li>
+                        <li><a href="#servicios" class="text-light">Servicios</a></li>
+                        <li><a href="#equipo" class="text-light">Equipo Médico</a></li>
+                        <li><a href="#contacto" class="text-light">Contacto</a></li>
+                        <li><a href="#" class="text-light">Política de Privacidad</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5>Newsletter</h5>
+                    <p>Suscríbase para recibir noticias y actualizaciones.</p>
+                    <form class="mb-3">
+                        <div class="input-group">
+                            <input type="email" class="form-control" placeholder="Su email">
+                            <button class="btn btn-primary" type="submit">Suscribirse</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="text-center">
+                <p>&copy; 2025 MediSalud. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/1234567890" class="whatsapp-float" target="_blank" style="position: fixed; bottom: 30px; right: 30px; background-color: #25d366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; box-shadow: 2px 2px 6px rgba(0,0,0,0.4); z-index: 1000;">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 50) {
+                document.querySelector('.navbar').classList.add('scrolled');
+            } else {
+                document.querySelector('.navbar').classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Form validation
+        const forms = document.querySelectorAll('form');
+        forms.forEach(form => {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                // Add your form submission logic here
+                alert('Formulario enviado con éxito. Nos pondremos en contacto pronto.');
+                form.reset();
+            });
+        });
+
+        // Stats counter animation
+        const stats = document.querySelectorAll('.stat-number');
+        const observerOptions = {
+            threshold: 0.5
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const target = entry.target;
+                    const value = target.innerText;
+                    let current = 0;
+                    const increment = value.includes('K') ? 1000 : 1;
+                    const finalValue = parseInt(value);
+                    const duration = 2000;
+                    const steps = 50;
+                    
+                    const incrementValue = (finalValue / steps);
+                    const interval = duration / steps;
+
+                    const counter = setInterval(() => {
+                        current += incrementValue;
+                        if (current >= finalValue) {
+                            target.innerText = value;
+                            clearInterval(counter);
+                        } else {
+                            target.innerText = Math.floor(current) + (value.includes('K') ? 'K+' : (value.includes('%') ? '%' : ''));
+                        }
+                    }, interval);
+
+                    observer.unobserve(target);
+                }
+            });
+        }, observerOptions);
+
+        stats.forEach(stat => observer.observe(stat));
+
+        // Back to top button
+        const createBackToTopButton = () => {
+            const button = document.createElement('button');
+            button.innerHTML = '<i class="fas fa-arrow-up"></i>';
+            button.className = 'back-to-top';
+            button.style.cssText = `
+                position: fixed;
+                bottom: 30px;
+                left: 30px;
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                background-color: var(--primary-color);
+                color: white;
+                border: none;
+                cursor: pointer;
+                display: none;
+                align-items: center;
+                justify-content: center;
+                z-index: 1000;
+                transition: all 0.3s ease;
+            `;
+            
+            document.body.appendChild(button);
+
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    button.style.display = 'flex';
+                } else {
+                    button.style.display = 'none';
+                }
+            });
+
+            button.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        };
+
+        createBackToTopButton();
+    </script>
+</body>
+</html>

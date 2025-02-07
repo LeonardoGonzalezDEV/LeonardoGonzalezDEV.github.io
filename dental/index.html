@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DentalCare Plus - Clínica Dental Especializada</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2b96cc;
+            --secondary-color: #005792;
+            --accent-color: #00bbf0;
+            --light-blue: #e3f4ff;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+        }
+
+        /* Navbar Mejorado */
+        .navbar {
+            background: linear-gradient(to right, rgba(255, 255, 255, 0.98), rgba(227, 244, 255, 0.98));
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            padding: 1rem 0;
+        }
+
+        .navbar-brand {
+            font-size: 1.8rem;
+            background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 700;
+        }
+
+        .nav-link {
+            color: var(--secondary-color) !important;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section Mejorado */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+                        url('https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=1920') center/cover;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(0, 87, 146, 0.8), rgba(0, 187, 240, 0.8));
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Servicios Mejorados */
+        .service-card {
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .service-card img {
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover img {
+            transform: scale(1.1);
+        }
+
+        /* Sección de Tecnología */
+        .technology-section {
+            background: linear-gradient(135deg, var(--light-blue), white);
+            padding: 5rem 0;
+        }
+
+        .tech-card {
+            text-align: center;
+            padding: 2rem;
+            border-radius: 15px;
+            background: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .tech-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Equipo Mejorado */
+        .team-member {
+            position: relative;
+            margin-bottom: 3rem;
+        }
+
+        .team-member img {
+            width: 250px;
+            height: 250px;
+            border-radius: 20px;
+            object-fit: cover;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .team-info {
+            background: linear-gradient(to right, var(--primary-color), var(--accent-color));
+            padding: 1.5rem;
+            border-radius: 15px;
+            color: white;
+            margin-top: -30px;
+            position: relative;
+            z-index: 2;
+            width: 90%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Testimonios Mejorados */
+        .testimonial {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin: 1rem 0;
+            position: relative;
+        }
+
+        .testimonial::before {
+            content: '"';
+            position: absolute;
+            top: -20px;
+            left: 20px;
+            font-size: 5rem;
+            color: var(--primary-color);
+            opacity: 0.1;
+        }
+
+        /* Precios */
+        .price-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .price-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .price-header {
+            background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+            color: white;
+            padding: 1rem;
+            border-radius: 15px;
+            margin: -2rem -2rem 2rem -2rem;
+        }
+
+        /* Blog */
+        .blog-card {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .blog-image {
+            height: 200px;
+            object-fit: cover;
+        }
+
+        /* Formulario de Contacto Mejorado */
+        .contact-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-control {
+            border-radius: 10px;
+            padding: 0.8rem;
+            border: 2px solid #e3f4ff;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 0.2rem rgba(43, 150, 204, 0.25);
+        }
+
+        /* Botones Mejorados */
+        .btn-primary {
+            background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 187, 240, 0.4);
+        }
+
+        /* Footer Mejorado */
+        footer {
+            background: linear-gradient(45deg, var(--secondary-color), var(--primary-color));
+            color: white;
+            padding: 5rem 0 2rem;
+        }
+
+        .footer-heading {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .footer-heading::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--accent-color);
+        }
+
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            margin-right: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--accent-color);
+            transform: translateY(-3px);
+        }
+
+        /* Emergencias Section */
+        .emergency-section {
+            background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+            color: white;
+            padding: 2rem 0;
+            position: relative;
+        }
+
+        .emergency-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Animaciones */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                height: 70vh;
+            }
+
+            .team-member img {
+                width: 200px;
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-tooth me-2"></i>DentalCare Plus
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#inicio">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#servicios">Servicios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#tecnologia">Tecnología</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#equipo">Equipo</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contacto">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="container hero-content">
+            <div class="row">
+                <div class="col-lg-8" data-aos="fade-right">
+                    <h1 class="display-4 mb-4 fw-bold">Tu sonrisa perfecta comienza aquí</h1>
+                    <p class="lead mb-4">Tecnología de vanguardia y profesionales expertos para el cuidado integral de tu salud dental.</p>
+                    <div class="d-flex gap-3">
+                        <a href="#contacto" class="btn btn-primary btn-lg">
+                            <i class="fas fa-calendar-alt me-2"></i>Agenda tu cita
+                        </a>
+                        <a href="#servicios" class="btn btn-outline-light btn-lg">
+                            <i class="fas fa-info-circle me-2"></i>Conoce más
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Emergency Section -->
+    <section class="emergency-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <h3><i class="fas fa-exclamation-circle me-2"></i>Emergencias Dentales 24/7</h3>
+                    <p class="mb-0">Atención inmediata para emergencias dentales. ¡Estamos aquí para ayudarte!</p>
+                </div>
+                <div class="col-md-4 text-md-end">
+                    <a href="tel:+123456789" class="btn btn-light btn-lg">
+                        <i class="fas fa-phone-alt me-2"></i>Llamar ahora
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Servicios -->
+    <section id="servicios" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5" data-aos="fade-up">Nuestros Servicios Especializados</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-card">
+                        <!-- Continuación de la sección Servicios -->
+                        <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95" class="card-img-top" alt="Limpieza dental">
+                        <div class="card-body text-center">
+                            <div class="service-icon">
+                                <i class="fas fa-tooth"></i>
+                            </div>
+                            <h5 class="card-title">Limpieza Dental Profunda</h5>
+                            <p class="card-text">Eliminación de placa y sarro con tecnología ultrasónica avanzada para una limpieza completa y efectiva.</p>
+                            <a href="#contacto" class="btn btn-primary">Reservar cita</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-card">
+                        <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118" class="card-img-top" alt="Ortodoncia">
+                        <div class="card-body text-center">
+                            <div class="service-icon">
+                                <i class="fas fa-teeth"></i>
+                            </div>
+                            <h5 class="card-title">Ortodoncia Invisible</h5>
+                            <p class="card-text">Alineadores transparentes personalizados para corregir la posición de tus dientes de forma discreta.</p>
+                            <a href="#contacto" class="btn btn-primary">Consultar</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-card">
+                        <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5" class="card-img-top" alt="Implantes">
+                        <div class="card-body text-center">
+                            <div class="service-icon">
+                                <i class="fas fa-teeth-open"></i>
+                            </div>
+                            <h5 class="card-title">Implantes Dentales</h5>
+                            <p class="card-text">Implantes de titanio de última generación para reemplazar dientes perdidos de forma permanente.</p>
+                            <a href="#contacto" class="btn btn-primary">Más información</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Tecnología -->
+    <section id="tecnologia" class="technology-section">
+        <div class="container">
+            <h2 class="text-center mb-5" data-aos="fade-up">Tecnología de Vanguardia</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4" data-aos="fade-up">
+                    <div class="tech-card">
+                        <i class="fas fa-camera fa-3x mb-3 text-primary"></i>
+                        <h4>Radiografía Digital 3D</h4>
+                        <p>Diagnóstico preciso con menor radiación y resultados inmediatos.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="tech-card">
+                        <i class="fas fa-laptop-medical fa-3x mb-3 text-primary"></i>
+                        <h4>Escáner Intraoral</h4>
+                        <p>Impresiones digitales precisas sin molestias para el paciente.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="tech-card">
+                        <i class="fas fa-teeth fa-3x mb-3 text-primary"></i>
+                        <h4>CAD/CAM Dental</h4>
+                        <p>Restauraciones precisas y personalizadas en una sola visita.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Equipo -->
+    <section id="equipo" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5" data-aos="fade-up">Nuestro Equipo de Especialistas</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4" data-aos="fade-up">
+                    <div class="team-member text-center">
+                        <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d" alt="Dr. García">
+                        <div class="team-info">
+                            <h4>Dr. Juan García</h4>
+                            <p class="mb-0">Ortodoncista</p>
+                            <small>Especialista en Ortodoncia Invisible</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="team-member text-center">
+                        <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f" alt="Dra. Martínez">
+                        <div class="team-info">
+                            <h4>Dra. Ana Martínez</h4>
+                            <p class="mb-0">Cirujana Maxilofacial</p>
+                            <small>Experta en Implantes Dentales</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="team-member text-center">
+                        <img src="https://images.unsplash.com/photo-1537368910025-700350fe46c7" alt="Dr. López">
+                        <div class="team-info">
+                            <h4>Dr. Carlos López</h4>
+                            <p class="mb-0">Odontólogo General</p>
+                            <small>Especialista en Estética Dental</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contacto" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5" data-aos="fade-up">Contacta con Nosotros</h2>
+            <div class="row">
+                <div class="col-lg-6 mb-4" data-aos="fade-up">
+                    <div class="contact-form">
+                        <form id="contactForm">
+                            <div class="mb-3">
+                                <input type="text" class="form-control" placeholder="Nombre completo" required>
+                            </div>
+                            <div class="mb-3">
+                                <input type="email" class="form-control" placeholder="Email" required>
+                            </div>
+                            <div class="mb-3">
+                                <input type="tel" class="form-control" placeholder="Teléfono" required>
+                            </div>
+                            <div class="mb-3">
+                                <select class="form-control" required>
+                                    <option value="">Selecciona el servicio</option>
+                                    <option>Limpieza Dental</option>
+                                    <option>Ortodoncia</option>
+                                    <option>Implantes</option>
+                                    <option>Blanqueamiento</option>
+                                    <option>Otros</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <textarea class="form-control" rows="4" placeholder="Mensaje" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100">
+                                <i class="fas fa-paper-plane me-2"></i>Enviar mensaje
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="contact-info bg-white p-4 rounded-3 h-100">
+                        <h4 class="mb-4">Información de contacto</h4>
+                        <div class="mb-4">
+                            <h5><i class="fas fa-map-marker-alt me-2 text-primary"></i>Ubicación</h5>
+                            <p>Av. Principal 123, Ciudad</p>
+                        </div>
+                        <div class="mb-4">
+                            <h5><i class="fas fa-phone-alt me-2 text-primary"></i>Teléfonos</h5>
+                            <p>Citas: (123) 456-7890<br>
+                            Emergencias: (123) 456-7899</p>
+                        </div>
+                        <div class="mb-4">
+                            <h5><i class="fas fa-envelope me-2 text-primary"></i>Email</h5>
+                            <p>citas@dentalcareplus.com<br>
+                            info@dentalcareplus.com</p>
+                        </div>
+                        <div class="mb-4">
+                            <h5><i class="fas fa-clock me-2 text-primary"></i>Horario de atención</h5>
+                            <p>Lunes a Viernes: 9:00 AM - 7:00 PM<br>
+                            Sábados: 9:00 AM - 2:00 PM<br>
+                            Domingos: Solo emergencias</p>
+                        </div>
+                        <div class="social-links mt-4">
+                            <a href="#" class="me-3"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="me-3"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="me-3"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h4 class="footer-heading">DentalCare Plus</h4>
+                    <p>Más de 20 años cuidando la salud bucal de nuestros pacientes con los más altos estándares de calidad y tecnología de vanguardia.</p>
+                    <div class="social-links mt-3">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <h4 class="footer-heading">Enlaces rápidos</h4>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#inicio" class="text-white text-decoration-none">Inicio</a></li>
+                        <li class="mb-2"><a href="#servicios" class="text-white text-decoration-none">Servicios</a></li>
+                        <li class="mb-2"><a href="#tecnologia" class="text-white text-decoration-none">Tecnología</a></li>
+                        <li class="mb-2"><a href="#equipo" class="text-white text-decoration-none">Equipo</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4">
+                    <h4 class="footer-heading">Newsletter</h4>
+                    <p>Suscríbete para recibir consejos de salud dental y nuestras últimas novedades.</p>
+                    <form class="mt-3">
+                        <div class="input-group mb-3">
+                            <input type="email" class="form-control" placeholder="Tu email" aria-label="Tu email">
+                            <button class="btn btn-primary" type="button">Suscribirse</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <hr class="mt-4 mb-4" style="border-color: rgba(255,255,255,0.1);">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0">&copy; 2024 DentalCare Plus. Todos los derechos reservados.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <a href="#" class="text-white text-decoration-none me-3">Política de privacidad</a>
+                    <a href="#" class="text-white text-decoration-none">Términos y condiciones</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        // Inicializar AOS
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+
+        // Cambiar estilo del navbar al hacer scroll
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+                navbar.style.boxShadow = '0 2px 15px rgba(0, 0, 0, 0.1)';
+            } else {
+                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+                navbar.style.boxShadow = 'none';
+            }
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Validación del formulario
+        const contactForm = document.getElementById('contactForm');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                // Aquí iría la lógica de envío del formulario
+                alert('Gracias por contactarnos. Te responderemos pronto.');
+                contactForm.reset();
+            });
+        }
+    </script>
+</body>
+</html>

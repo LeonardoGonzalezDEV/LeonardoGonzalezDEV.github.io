@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ArquitectosModernos | Diseño & Construcción</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <style>
+        :root {
+            --dark-primary: #1a1a1a;
+            --dark-secondary: #2d2d2d;
+            --accent: #c9a55c;
+        }
+
+        body {
+            background-color: var(--dark-primary);
+            color: white;
+            font-family: 'Helvetica Neue', sans-serif;
+        }
+
+        /* Previous styles remain the same */
+        .navbar {
+            background: linear-gradient(to right, rgba(26,26,26,0.95), rgba(45,45,45,0.95));
+            backdrop-filter: blur(10px);
+        }
+
+        .hero-section {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('data:image/jpeg;base64,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') center/cover;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section-dark {
+            background-color: var(--dark-secondary);
+            padding: 100px 0;
+        }
+
+        .section-gradient {
+            background: linear-gradient(135deg, var(--dark-primary), var(--dark-secondary));
+            padding: 100px 0;
+        }
+        .section-gradient img{
+            height: 75px;
+            width: auto;
+        }
+
+        .accent-text {
+            color: var(--accent);
+        }
+
+        .card {
+            background: rgba(45,45,45,0.5);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        /* Updated styles for project cards */
+        .card .card-body {
+            color: white;
+        }
+
+        .card h4 {
+            color: white;
+        }
+
+        .card p {
+            color: white;
+        }
+
+        /* Updated styles for contact form */
+        .contact-form input,
+        .contact-form textarea {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            color: white;
+        }
+
+        .contact-form input::placeholder,
+        .contact-form textarea::placeholder {
+            color: rgba(255,255,255,0.7);
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            background: rgba(255,255,255,0.15);
+            border-color: var(--accent);
+            color: white;
+            box-shadow: none;
+        }
+
+        /* Rest of the previous styles remain the same */
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--accent);
+        }
+
+        .btn-custom {
+            background-color: var(--accent);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-custom:hover {
+            background-color: #b18d4f;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .project-img {
+            height: 300px;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">ArquitectosModernos</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#inicio">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#nosotros">Nosotros</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#servicios">Servicios</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#proyectos">Proyectos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#clientes">Clientes</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8" data-aos="fade-right">
+                    <h1 class="display-3 fw-bold mb-4">Transformando espacios,<br>creando experiencias</h1>
+                    <p class="lead mb-4">Diseñamos y construimos espacios únicos que reflejan tu visión y estilo de vida.</p>
+                    <a href="#contacto" class="btn btn-custom">Contactar ahora</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nosotros Section -->
+    <section id="nosotros" class="section-dark">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <h2 class="accent-text mb-4">Nuestra Historia</h2>
+                    <p>Con más de 15 años de experiencia, ArquitectosModernos se ha establecido como líder en diseño arquitectónico innovador y sostenible.</p>
+                    <h3 class="accent-text mt-4">Misión</h3>
+                    <p>Crear espacios excepcionales que mejoren la calidad de vida de nuestros clientes mientras respetamos el medio ambiente.</p>
+                    <h3 class="accent-text mt-4">Visión</h3>
+                    <p>Ser reconocidos globalmente como referentes en arquitectura sostenible y diseño innovador.</p>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <img src="https://es.habcdn.com/photos/business/medium/trabajo-en-equipo-multidisciplinar-2_174444.jpg" alt="Nuestro equipo" class="img-fluid rounded">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Servicios Section -->
+    <section id="servicios" class="section-gradient">
+        <div class="container">
+            <h2 class="text-center accent-text mb-5">Nuestros Servicios</h2>
+            <div class="row g-4">
+                <div class="col-lg-4" data-aos="fade-up">
+                    <div class="card h-100 text-white p-4">
+                        <div class="service-icon mb-3">🏗️</div>
+                        <h3>Diseño Arquitectónico</h3>
+                        <p>Creamos diseños únicos que combinan funcionalidad y estética.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card h-100 text-white p-4">
+                        <div class="service-icon mb-3">🏢</div>
+                        <h3>Construcción</h3>
+                        <p>Ejecutamos proyectos con los más altos estándares de calidad.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card h-100 text-white p-4">
+                        <div class="service-icon mb-3">🔄</div>
+                        <h3>Remodelación</h3>
+                        <p>Transformamos espacios existentes en ambientes modernos.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Proyectos Section -->
+    <section id="proyectos" class="section-dark">
+        <div class="container">
+            <h2 class="text-center accent-text mb-5">Proyectos Destacados</h2>
+            <div class="row g-4">
+                <div class="col-lg-4" data-aos="zoom-in">
+                    <div class="card">
+                        <img src="https://i.ytimg.com/vi/xWj3tVkWxnE/maxresdefault.jpg" class="project-img" alt="Proyecto 1">
+                        <div class="card-body">
+                            <h4>Torre Empresarial Nexus</h4>
+                            <p>Edificio corporativo de 20 pisos con certificación LEED.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="card">
+                        <img src="https://1557540.fs1.hubspotusercontent-na1.net/hub/1557540/hubfs/MAIL-AMANHA-DIC-22_03%20%282%29.jpg?width=2000&name=MAIL-AMANHA-DIC-22_03%20%282%29.jpg" class="project-img" alt="Proyecto 2">
+                        <div class="card-body">
+                            <h4>Residencial Harmony</h4>
+                            <p>Complejo residencial sostenible con 50 unidades.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="card">
+                        <img src="https://images.adsttc.com/media/images/519a/81ff/b3fc/4b5c/f400/001e/large_jpg/1307111999-1287177876-gam-fdez-lat-087-1000x666.jpg?1369080317" class="project-img" alt="Proyecto 3">
+                        <div class="card-body">
+                            <h4>Centro Cultural Aurora</h4>
+                            <p>Espacio multifuncional para eventos culturales.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clientes Section -->
+    <section id="clientes" class="section-gradient">
+        <div class="container">
+            <h2 class="text-center accent-text mb-5">Nuestros Clientes</h2>
+            <div class="row g-4">
+                <div class="col-lg-4" data-aos="fade-up">
+                    <div class="card text-white p-4">
+                        <p class="mb-3">"Un servicio excepcional y resultados impresionantes. Superaron todas nuestras expectativas."</p>
+                        <div class="d-flex align-items-center">
+                            <img src="https://www.shutterstock.com/image-photo/serious-man-casual-style-portrait-600nw-2337136703.jpg" class="rounded-circle me-3" alt="Cliente">
+                            <div>
+                                <h5 class="mb-0">Carlos Mendoza</h5>
+                                <small class="accent-text">CEO, Grupo Empresarial XYZ</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card text-white p-4">
+                        <p class="mb-3">"Su enfoque innovador y atención al detalle hacen la diferencia. Totalmente recomendados."</p>
+                        <div class="d-flex align-items-center">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-5aGCrwCnXzZs7XugsUGcxeYhy9nDtdOyWA&s" class="rounded-circle me-3" alt="Cliente">
+                            <div>
+                                <h5 class="mb-0">Ana Martínez</h5>
+                                <small class="accent-text">Directora, Corporación ABC</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card text-white p-4">
+                        <p class="mb-3">"Profesionalismo y creatividad en cada proyecto. Una experiencia extraordinaria."</p>
+                        <div class="d-flex align-items-center">
+                            <img src="https://www.shutterstock.com/image-photo/portrait-hispanic-middle-age-athletic-600nw-1950222823.jpg" class="rounded-circle me-3" alt="Cliente">
+                            <div>
+                                <h5 class="mb-0">Roberto Silva</h5>
+                                <small class="accent-text">Gerente, Desarrollos Inmobiliarios DEF</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <!-- Contacto Section -->
+    <section id="contacto" class="section-dark">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <h2 class="accent-text mb-4">Contáctanos</h2>
+                    <form class="contact-form">
+                        <div class="mb-3">
+                            <input type="text" class="form-control" placeholder="Nombre completo">
+                        </div>
+                        <div class="mb-3">
+                            <input type="email" class="form-control" placeholder="Email">
+                        </div>
+                        <div class="mb-3">
+                            <input type="tel" class="form-control" placeholder="Teléfono">
+                        </div>
+                        <div class="mb-3">
+                            <textarea class="form-control" rows="5" placeholder="Mensaje"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-custom">Enviar mensaje</button>
+                    </form>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="ps-lg-5">
+                        <h3 class="accent-text mb-4">Información de contacto</h3>
+                        <p>📍 Av. Principal 123, Ciudad Empresarial</p>
+                        <p>📞 +123 456 7890</p>
+                        <p>✉️ info@arquitectosmodernos.com</p>
+                        <div class="mt-4">
+                            <h4 class="accent-text mb-3">Síguenos en redes sociales</h4>
+                            <div class="d-flex gap-3">
+                                <a href="#" class="text-white">Instagram</a>
+                                <a href="#" class="text-white">Facebook</a>
+                                <a href="#" class="text-white">LinkedIn</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        // Initialize AOS with enhanced settings
+        AOS.init({
+            duration: 1200,
+            once: true,
+            mirror: true,
+            offset: 120
+        });
+
+        // Enhanced smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                const headerOffset = 80;
+                const elementPosition = target.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Enhanced navbar behavior
+        let lastScroll = 0;
+        const navbar = document.querySelector('.navbar');
+
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll > lastScroll && currentScroll > 100) {
+                navbar.style.transform = 'translateY(-100%)';
+            } else {
+                navbar.style.transform = 'translateY(0)';
+            }
+            
+            if (currentScroll > 50) {
+                navbar.style.background = 'rgba(10, 12, 15, 0.95)';
+                navbar.style.borderBottom = '1px solid rgba(230, 179, 74, 0.1)';
+            } else {
+                navbar.style.background = 'rgba(10, 12, 15, 0.7)';
+                navbar.style.borderBottom = 'none';
+            }
+            
+            lastScroll = currentScroll;
+        });
+
+        // Add parallax effect to hero section
+        window.addEventListener('scroll', () => {
+            const heroSection = document.querySelector('.hero-section');
+            const scrolled = window.pageYOffset;
+            heroSection.style.backgroundPositionY = scrolled * 0.5 + 'px';
+        });
+
+        // Add hover effect to service cards
+        document.querySelectorAll('.service-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+
+                card.style.setProperty('--x', `${x}px`);
+                card.style.setProperty('--y', `${y}px`);
+            });
+        });
+    </script>
+</body>
+</html>

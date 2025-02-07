@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abogados & Asociados | Excelencia Legal</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #c8a45c;
+            --secondary-color: #2c3e50;
+            --accent-color: #e74c3c;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+        }
+
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                        url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=1920&q=80') no-repeat center center;
+            background-size: cover;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            color: white;
+        }
+
+        .navbar {
+            background: linear-gradient(90deg, rgba(44,62,80,0.95) 0%, rgba(52,73,94,0.95) 100%);
+            backdrop-filter: blur(10px);
+        }
+
+        .navbar-brand {
+            font-family: 'Times New Roman', serif;
+            font-weight: bold;
+            color: var(--primary-color) !important;
+        }
+
+        .lawyer-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: none;
+            background: linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%);
+        }
+
+        .lawyer-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+
+        .lawyer-card img {
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .nav-link {
+            transition: color 0.3s ease, transform 0.3s ease;
+            position: relative;
+            padding: 0.5rem 1rem;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 50%;
+            background-color: var(--primary-color);
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+            left: 0;
+        }
+
+        .specialty-card {
+            background: linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%);
+            border: none;
+            border-radius: 15px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
+        }
+
+        .specialty-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .specialty-icon {
+            font-size: 3.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .contact-info {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+
+        .stats-section {
+            background: linear-gradient(rgba(44,62,80,0.9), rgba(44,62,80,0.9)),
+                        url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=1920&q=80') no-repeat center center;
+            background-size: cover;
+            color: white;
+            padding: 5rem 0;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, var(--primary-color) 0%, #d4b574 100%);
+            border: none;
+            padding: 0.8rem 2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(200,164,92,0.3);
+            background: linear-gradient(45deg, #d4b574 0%, var(--primary-color) 100%);
+        }
+
+        .testimonial-card {
+            background: linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 1rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .news-card {
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .news-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .news-card img {
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .awards-section {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 4rem 0;
+        }
+
+        .award-item {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .award-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        footer {
+            background: linear-gradient(90deg, #2c3e50 0%, #34495e 100%);
+            padding: 4rem 0 2rem;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            margin: 0 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--primary-color);
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                height: 70vh;
+            }
+            
+            .stat-card {
+                margin-bottom: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Abogados & Asociados</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#inicio">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#nosotros">Nosotros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#areas">Áreas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#equipo">Equipo</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contacto">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8" data-aos="fade-right">
+                    <h1 class="display-3 fw-bold mb-4">Defendemos Tus Derechos con Excelencia</h1>
+                    <p class="lead mb-4">Más de 25 años de experiencia respaldando a nuestros clientes con los mejores resultados legales</p>
+                    <div class="d-flex gap-3">
+                        <a href="#contacto" class="btn btn-primary btn-lg">Consulta Gratuita</a>
+                        <a href="#areas" class="btn btn-outline-light btn-lg">Nuestros Servicios</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-sm-6" data-aos="fade-up">
+                    <div class="stat-card">
+                        <h2 class="display-4 fw-bold">25+</h2>
+                        <p class="mb-0">Años de Experiencia</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="stat-card">
+                        <h2 class="display-4 fw-bold">1000+</h2>
+                        <p class="mb-0">Casos Ganados</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="stat-card">
+                        <h2 class="display-4 fw-bold">30+</h2>
+                        <p class="mb-0">Abogados Expertos</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="stat-card">
+                        <h2 class="display-4 fw-bold">98%</h2>
+                        <p class="mb-0">Clientes Satisfechos</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="nosotros" class="py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <h2 class="display-4 mb-4">Sobre Nosotros</h2>
+                    <p class="lead mb-4">Desde 1995, nuestro despacho ha sido sinónimo de excelencia legal y compromiso con nuestros clientes.</p>
+                    <p class="mb-4">Nuestro equipo de profesionales altamente calificados combina experiencia y conocimiento para ofrecer soluciones legales efectivas y personalizadas.</p>
+                    <div class="row mb-4">
+                        <div class="col-md-6">
+                            <h5>📊 Enfoque Estratégico</h5>
+                            <p>Análisis profundo de cada caso para garantizar los mejores resultados.</p>
+                        </div>
+                        <div class="col-md-6">
+                            <h5>🤝 Atención Personalizada</h5>
+                            <p>Comunicación directa y constante con nuestros clientes.</p>
+                        </div>
+                    </div>
+                    <a href="#contacto" class="btn btn-primary">Conoce Más</a>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <img src="https://images.unsplash.com/photo-1593115057322-e94b77572f20?auto=format&fit=crop&w=600&h=400&q=80" alt="Oficina" class="img-fluid rounded shadow-lg">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Areas Section -->
+    <section id="areas" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center display-4 mb-5">Áreas de Especialización</h2>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up">
+                    <div class="specialty-card h-100 p-4">
+                        <div class="specialty-icon">⚖️</div>
+                        <h3>Derecho Civil</h3>
+                        <p>Expertos en contratos, propiedad, sucesiones y responsabilidad civil.</p>
+                        <ul class="list-unstyled">
+                            <li>✓ Contratos y Obligaciones</li>
+                            <li>✓ Derecho Inmobiliario</li>
+                            <li>✓ Derecho Sucesorio</li>
+                            <li>✓ Responsabilidad Civil</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="specialty-card h-100 p-4">
+                        <div class="specialty-icon">🏢</div>
+                        <h3>Derecho Mercantil</h3>
+                        <p>Asesoría integral para empresas y negocios.</p>
+                        <ul class="list-unstyled">
+                            <li>✓ Constitución de Sociedades</li>
+                            <li>✓ Fusiones y Adquisiciones</li>
+                            <li>✓ Contratos Mercantiles</li>
+                            <li>✓ Propiedad Intelectual</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="specialty-card h-100 p-4">
+                        <div class="specialty-icon">👥</div>
+                        <h3>Derecho Laboral</h3>
+                        <p>Protección de derechos laborales y asesoría empresarial.</p>
+                        <ul class="list-unstyled">
+                            [Código anterior se mantiene igual hasta la última lista sin terminar en la sección de Derecho Laboral]
+                            <li>✓ Despidos y Finiquitos</li>
+                            <li>✓ Negociaciones Colectivas</li>
+                            <li>✓ Auditorías Laborales</li>
+                            <li>✓ Seguridad Social</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="equipo" class="py-5">
+        <div class="container">
+            <h2 class="text-center display-4 mb-5">Nuestro Equipo</h2>
+            <div class="row">
+                <div class="col-lg-4 mb-4" data-aos="fade-up">
+                    <div class="lawyer-card">
+                        <img src="https://www.mnprogram.com/wp-content/uploads/2024/02/Tipos-de-abogados-1-1024x576.webp" class="card-img-top" alt="Abogado">
+                        <div class="card-body text-center p-4">
+                            <h5 class="card-title">Dr. Carlos Martínez</h5>
+                            <p class="text-muted">Socio Fundador</p>
+                            <p class="card-text">Especialista en Derecho Mercantil con más de 25 años de experiencia.</p>
+                            <div class="social-links mt-3">
+                                <a href="#" class="text-dark mx-2">LinkedIn</a>
+                                <a href="#" class="text-dark mx-2">Email</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="lawyer-card">
+                        <img src="https://media.istockphoto.com/id/1587604256/es/foto/retrato-abogada-y-mujer-negra-con-tablet-sonrisa-y-feliz-en-la-oficina-del-lugar-de-trabajo.jpg?s=612x612&w=0&k=20&c=jyalE8Zgyk_86i4JGA6MCh2LQ0xkYvckGi24O0-ecGg=" class="card-img-top" alt="Abogada">
+                        <div class="card-body text-center p-4">
+                            <h5 class="card-title">Dra. Ana García</h5>
+                            <p class="text-muted">Socia</p>
+                            <p class="card-text">Experta en Derecho Civil y Procesal con reconocimiento internacional.</p>
+                            <div class="social-links mt-3">
+                                <a href="#" class="text-dark mx-2">LinkedIn</a>
+                                <a href="#" class="text-dark mx-2">Email</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="lawyer-card">
+                        <img src="https://abogadoslaboralesmexico.mx/wp-content/uploads/2020/12/abogado-laboral-en-M%C3%A9xico.jpg" class="card-img-top" alt="Abogado">
+                        <div class="card-body text-center p-4">
+                            <h5 class="card-title">Dr. Luis Rodriguez</h5>
+                            <p class="text-muted">Socio</p>
+                            <p class="card-text">Especialista en Derecho Laboral y negociaciones colectivas.</p>
+                            <div class="social-links mt-3">
+                                <a href="#" class="text-dark mx-2">LinkedIn</a>
+                                <a href="#" class="text-dark mx-2">Email</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center display-4 mb-5">Lo que Dicen Nuestros Clientes</h2>
+            <div class="row">
+                <div class="col-lg-4 mb-4" data-aos="fade-up">
+                    <div class="testimonial-card">
+                        <div class="mb-3">⭐⭐⭐⭐⭐</div>
+                        <p class="mb-4">"Excelente servicio y atención personalizada. Resolvieron mi caso con profesionalismo y eficacia."</p>
+                        <div class="d-flex align-items-center">
+                            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=50&h=50&q=80" alt="Cliente" class="rounded-circle me-3">
+                            <div>
+                                <h6 class="mb-0">María González</h6>
+                                <small class="text-muted">Cliente Derecho Civil</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="testimonial-card">
+                        <div class="mb-3">⭐⭐⭐⭐⭐</div>
+                        <p class="mb-4">"Su experiencia en derecho mercantil fue fundamental para el éxito de nuestra empresa."</p>
+                        <div class="d-flex align-items-center">
+                            <img src="https://images.unsplash.com/photo-1564564321837-a57b7070ac4f?auto=format&fit=crop&w=50&h=50&q=80" alt="Cliente" class="rounded-circle me-3">
+                            <div>
+                                <h6 class="mb-0">Juan Pérez</h6>
+                                <small class="text-muted">CEO Empresa Tech</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="testimonial-card">
+                        <div class="mb-3">⭐⭐⭐⭐⭐</div>
+                        <p class="mb-4">"Profesionales comprometidos que siempre están disponibles cuando los necesitas."</p>
+                        <div class="d-flex align-items-center">
+                            <img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?auto=format&fit=crop&w=50&h=50&q=80" alt="Cliente" class="rounded-circle me-3">
+                            <div>
+                                <h6 class="mb-0">Laura Martínez</h6>
+                                <small class="text-muted">Cliente Derecho Laboral</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <!-- Awards Section -->
+    <section class="awards-section">
+        <div class="container">
+            <h2 class="text-center display-4 mb-5">Reconocimientos</h2>
+            <div class="row">
+                <div class="col-md-3" data-aos="fade-up">
+                    <div class="award-item">
+                        <div class="award-icon">🏆</div>
+                        <h4>Mejor Firma Legal 2024</h4>
+                        <p>Cámara de Comercio</p>
+                    </div>
+                </div>
+                <div class="col-md-3" data-aos="fade-up" data-aos-delay="100">
+                    <div class="award-item">
+                        <div class="award-icon">🎖️</div>
+                        <h4>Excelencia en Servicio</h4>
+                        <p>Asociación Legal Nacional</p>
+                    </div>
+                </div>
+                <div class="col-md-3" data-aos="fade-up" data-aos-delay="200">
+                    <div class="award-item">
+                        <div class="award-icon">📋</div>
+                        <h4>ISO 9001</h4>
+                        <p>Certificación de Calidad</p>
+                    </div>
+                </div>
+                <div class="col-md-3" data-aos="fade-up" data-aos-delay="300">
+                    <div class="award-item">
+                        <div class="award-icon">⚖️</div>
+                        <h4>Top 10 Bufetes</h4>
+                        <p>Ranking Legal 2024</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contacto" class="py-5 contact-info">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <h2 class="display-4 mb-4">Contacto</h2>
+                    <form id="contactForm" class="needs-validation" novalidate>
+                        <div class="mb-3">
+                            <input type="text" class="form-control form-control-lg" placeholder="Nombre completo" required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="email" class="form-control form-control-lg" placeholder="Email" required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="tel" class="form-control form-control-lg" placeholder="Teléfono" required>
+                        </div>
+                        <div class="mb-3">
+                            <select class="form-select form-select-lg" required>
+                                <option value="">Área de consulta</option>
+                                <option>Derecho Civil</option>
+                                <option>Derecho Mercantil</option>
+                                <option>Derecho Laboral</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <textarea class="form-control form-control-lg" rows="4" placeholder="Mensaje" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-lg">Enviar Mensaje</button>
+                    </form>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <h2 class="display-4 mb-4">Ubicación</h2>
+                    <div class="mb-4">
+                        <h5>Oficina Principal</h5>
+                        <p>📍 Av. Principal 123, Centro Empresarial</p>
+                        <p>📞 (123) 456-7890</p>
+                        <p>✉️ info@abogadosyasociados.com</p>
+                    </div>
+                    <div class="mb-4">
+                        <h5>Horario de Atención</h5>
+                        <p>Lunes a Viernes: 9:00 - 18:00</p>
+                        <p>Sábados: 9:00 - 13:00</p>
+                    </div>
+                    <div class="ratio ratio-16x9">
+                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=600&h=450&q=80" alt="Ubicación" class="img-fluid rounded shadow">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h5 class="mb-3">Abogados & Asociados</h5>
+                    <p>Comprometidos con la excelencia legal y la satisfacción de nuestros clientes desde 1995.</p>
+                    <div class="social-links mt-3">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5 class="mb-3">Enlaces Rápidos</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#inicio" class="text-white text-decoration-none mb-2 d-block">Inicio</a></li>
+                        <li><a href="#nosotros" class="text-white text-decoration-none mb-2 d-block">Nosotros</a></li>
+                        <li><a href="#areas" class="text-white text-decoration-none mb-2 d-block">Áreas de Práctica</a></li>
+                        <li><a href="#equipo" class="text-white text-decoration-none mb-2 d-block">Equipo</a></li>
+                        <li><a href="#contacto" class="text-white text-decoration-none mb-2 d-block">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5 class="mb-3">Boletín Informativo</h5>
+                    <p>Suscríbete para recibir noticias y actualizaciones legales.</p>
+                    <form class="mt-3">
+                        <div class="input-group mb-3">
+                            <input type="email" class="form-control" placeholder="Tu email" aria-label="Tu email">
+                            <button class="btn btn-primary" type="button">Suscribir</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <hr class="my-4 bg-light">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0">© 2025 Abogados & Asociados. Todos los derechos reservados.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <a href="#" class="text-white text-decoration-none me-3">Política de Privacidad</a>
+                    <a href="#" class="text-white text-decoration-none">Términos de Servicio</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        // Inicializar AOS (Animate On Scroll)
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+
+        // Validación del formulario
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            if (!this.checkValidity()) {
+                event.stopPropagation();
+            } else {
+                // Aquí iría la lógica para enviar el formulario
+                alert('Mensaje enviado con éxito. Nos pondremos en contacto pronto.');
+                this.reset();
+            }
+            this.classList.add('was-validated');
+        });
+
+        // Smooth scroll para los enlaces del menú
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+                
+                // Cerrar el menú móvil si está abierto
+                const navbarCollapse = document.querySelector('.navbar-collapse');
+                if (navbarCollapse.classList.contains('show')) {
+                    navbarCollapse.classList.remove('show');
+                }
+            });
+        });
+
+        // Cambiar estilo del navbar al hacer scroll
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.padding = '0.5rem 1rem';
+            } else {
+                navbar.style.padding = '1rem';
+            }
+        });
+
+        // Animación de contador para las estadísticas
+        function animateValue(obj, start, end, duration) {
+            let startTimestamp = null;
+            const step = (timestamp) => {
+                if (!startTimestamp) startTimestamp = timestamp;
+                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                obj.innerHTML = Math.floor(progress * (end - start) + start);
+                if (progress < 1) {
+                    window.requestAnimationFrame(step);
+                }
+            };
+            window.requestAnimationFrame(step);
+        }
+
+        // Activar animaciones de contador cuando sean visibles
+        const observerOptions = {
+            threshold: 0.5
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const statsElements = entry.target.querySelectorAll('.display-4');
+                    statsElements.forEach(el => {
+                        const finalValue = parseInt(el.innerText);
+                        if (!isNaN(finalValue)) {
+                            animateValue(el, 0, finalValue, 2000);
+                        }
+                    });
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        const statsSection = document.querySelector('.stats-section');
+        if (statsSection) {
+            observer.observe(statsSection);
+        }
+    </script>
+</body>
+</html>

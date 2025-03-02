@@ -1,5 +1,5 @@
 ﻿{
-	"version": 1740948480,
+	"version": 1740959464,
 	"fileList": [
 		"data.js",
 		"c2runtime.js",
@@ -33,6 +33,10 @@
 		"images/posicion-sheet0.png",
 		"images/space-sheet0.png",
 		"images/muro-sheet0.png",
+		"images/abajo-sheet0.png",
+		"images/abajo-sheet1.png",
+		"images/arriba-sheet0.png",
+		"images/arriba-sheet1.png",
 		"media/jump.m4a",
 		"media/jump.ogg",
 		"media/explo.m4a",

@@ -1,13 +1,11 @@
 ﻿{
-	"version": 1740959772,
+	"version": 1741147863,
 	"fileList": [
 		"data.js",
 		"c2runtime.js",
 		"jquery-3.4.1.min.js",
 		"offlineClient.js",
 		"images/player-sheet0.png",
-		"images/player-sheet1.png",
-		"images/player-sheet2.png",
 		"images/techo-sheet0.png",
 		"images/puas-sheet0.png",
 		"images/particles.png",
@@ -37,6 +35,8 @@
 		"images/abajo-sheet1.png",
 		"images/arriba-sheet0.png",
 		"images/arriba-sheet1.png",
+		"images/sprite7-sheet0.png",
+		"images/sprite7-sheet1.png",
 		"media/jump.m4a",
 		"media/jump.ogg",
 		"media/explo.m4a",

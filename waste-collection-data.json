@@ -2,12 +2,11 @@
   "wasteCollectionPoints": [
     {
       "id": 1,
-      "name": "Colonia Centro",
+      "name": "Nombre de la Colonia",
       "coordinates": [-104.8936, 21.5041],
       "schedule": [
         { "day": "Lun", "time": "7:00 AM", "type": "Orgánica" },
-        { "day": "Mié", "time": "7:30 AM", "type": "Inorgánica" },
-        { "day": "Vie", "time": "8:00 AM", "type": "Reciclable" }
+        { "day": "Mié", "time": "7:30 AM", "type": "Inorgánica" }
       ]
     }
   ]

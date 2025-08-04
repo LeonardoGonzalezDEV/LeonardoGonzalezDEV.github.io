@@ -7,6 +7,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 <body>
     <!-- Navbar -->
@@ -19,19 +20,19 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#entradas">Entradas</a>
+                        <a class="nav-link" href="menu-desayuno.html">Menú Desayuno</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#sushi">Sushi</a>
+                        <a class="nav-link" href="menu-buffet.html">Menú Buffet</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#rolls">Rolls Especiales</a>
+                        <a class="nav-link" href="promociones.html">Promociones</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#bebidas">Bebidas</a>
+                        <a class="nav-link" href="https://wa.me/5215551234567" target="_blank" rel="noopener">WhatsApp</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#postres">Postres</a>
+                        <a class="nav-link" href="https://wa.me/5215551234567?text=Quiero%20reservar%20una%20mesa" target="_blank" rel="noopener">Reserva</a>
                     </li>
                 </ul>
             </div>
@@ -47,186 +48,72 @@
         </div>
     </section>
 
-    <!-- Entradas Section -->
-    <section id="entradas" class="menu-section">
+    <!-- Opciones principales -->
+    <section class="main-options py-5">
         <div class="container">
-            <h2 class="text-center section-title" data-aos="fade-up">Entradas</h2>
-            <div class="row">
-                <div class="col-md-4 menu-item" data-aos="fade-up">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTeSKyY-h_F5XiFpmfBUEbAE0xApVFqTlLSrQ&s" alt="Edamame">
-                    <span class="badge bg-success">Vegetariano</span>
-                    <h4>Edamame</h4>
-                    <p class="description">Vainas de soja al vapor con sal marina gruesa</p>
-                    <p class="ingredients">Ingredientes: Vainas de soja, sal marina</p>
-                    <div class="price">$8.00</div>
+            <div class="row justify-content-center">
+                <div class="col-md-4 col-6 mb-4">
+                    <a href="menu-desayuno.html" class="option-card d-block text-center text-white" style="background-image: url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=400&q=80');">
+                        <span class="option-overlay">Menú Desayuno</span>
+                    </a>
                 </div>
-                <div class="col-md-4 menu-item" data-aos="fade-up" data-aos-delay="100">
-                    <img src="https://cardamommagazine.com/wp-content/uploads/2021/04/chicken-gyoza.jpg" alt="Gyoza">
-                    <h4>Gyoza</h4>
-                    <p class="description">Empanadillas japonesas a la plancha rellenas de carne y verduras</p>
-                    <p class="ingredients">Ingredientes: Cerdo, col, jengibre, ajo, cebolla verde</p>
-                    <div class="price">$12.00</div>
+                <div class="col-md-4 col-6 mb-4">
+                    <a href="menu-buffet.html" class="option-card d-block text-center text-white" style="background-image: url('https://images.unsplash.com/photo-1553621042-f6e147245754?auto=format&fit=crop&w=400&q=80');">
+                        <span class="option-overlay">Menú Buffet</span>
+                    </a>
                 </div>
-                <div class="col-md-4 menu-item" data-aos="fade-up" data-aos-delay="200">
-                    <img src="https://images.unsplash.com/photo-1622973536968-3ead9e780960?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" alt="Miso Soup">
-                    <span class="badge bg-success">Vegetariano</span>
-                    <h4>Sopa Miso</h4>
-                    <p class="description">Caldo tradicional japonés con tofu sedoso y algas wakame</p>
-                    <p class="ingredients">Ingredientes: Pasta de miso, tofu, wakame, cebolla verde</p>
-                    <div class="price">$6.00</div>
+                <div class="col-md-4 col-6 mb-4">
+                    <a href="promociones.html" class="option-card d-block text-center text-white" style="background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80');">
+                        <span class="option-overlay">Promociones</span>
+                    </a>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-4 col-6 mb-4">
+                    <a href="https://wa.me/5215551234567" target="_blank" rel="noopener" class="option-card d-block text-center text-white" style="background-image: url('https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=400&q=80');">
+                        <span class="option-overlay">WhatsApp</span>
+                    </a>
+                </div>
+                <div class="col-md-4 col-6 mb-4">
+                    <a href="https://wa.me/5215551234567?text=Quiero%20reservar%20una%20mesa" target="_blank" rel="noopener" class="option-card d-block text-center text-white" style="background-image: url('https://images.unsplash.com/photo-1585621386284-99ba80a164fd?auto=format&fit=crop&w=400&q=80');">
+                        <span class="option-overlay">Reserva</span>
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Sushi Section -->
-    <section id="sushi" class="menu-section bg-light">
+    <!-- Sección creativa de ubicación -->
+    <section class="ubicacion py-5 bg-light">
         <div class="container">
-            <h2 class="text-center section-title" data-aos="fade-up">Sushi Tradicional</h2>
-            <div class="row">
-                <div class="col-md-4 menu-item" data-aos="fade-up">
-                    <img src="https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" alt="Nigiri Set">
-                    <h4>Nigiri Set</h4>
-                    <p class="description">Selección de 8 piezas de nigiri premium</p>
-                    <p class="ingredients">Salmón, atún, hamachi, unagi, ebi</p>
-                    <div class="price">$24.00</div>
-                </div>
-                <div class="col-md-4 menu-item" data-aos="fade-up" data-aos-delay="100">
-                    <img src="https://images.unsplash.com/photo-1617196034796-73dfa7b1fd56?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" alt="Sashimi Deluxe">
-                    <span class="special-tag">Chef's Choice</span>
-                    <h4>Sashimi Deluxe</h4>
-                    <p class="description">15 cortes frescos de pescado premium del día</p>
-                    <p class="ingredients">Selección diaria de pescados frescos importados de Japón</p>
-                    <div class="price">$32.00</div>
-                </div>
-                <div class="col-md-4 menu-item" data-aos="fade-up" data-aos-delay="200">
-                    <img src="https://images.unsplash.com/photo-1553621042-f6e147245754?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" alt="Inari Set">
-                    <span class="badge bg-success">Vegetariano</span>
-                    <h4>Inari Set</h4>
-                    <p class="description">6 piezas de sushi de tofu frito relleno de arroz seasoned</p>
-                    <p class="ingredients">Tofu frito, arroz de sushi, sésamo</p>
-                    <div class="price">$14.00</div>
+            <h2 class="text-center mb-4">¡Ven a vivir la experiencia Sakura Sushi!</h2>
+            <p class="text-center mb-4">Descubre nuestro rincón japonés en la ciudad. ¡Te esperamos con los brazos abiertos y el mejor sushi!</p>
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="ratio ratio-16x9">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3762.123456789!2d-99.123456789!3d19.123456789!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDA3JzI0LjAiTiA5OcKwMDcnMTIuMCJX!5e0!3m2!1ses!2smx!4v1690000000000!5m2!1ses!2smx" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Rolls Especiales Section -->
-    <section id="rolls" class="menu-section">
+    <!-- Sección Redes Sociales y Contacto -->
+    <section class="redes-contacto py-5">
         <div class="container">
-            <h2 class="text-center section-title" data-aos="fade-up">Rolls Especiales</h2>
-            <div class="row">
-                <div class="col-md-4 menu-item" data-aos="fade-up">
-                    <img src="https://images.unsplash.com/photo-1559410545-0bdcd187e0a6?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" alt="Dragon Roll">
-                    <span class="special-tag">Popular</span>
-                    <h4>Dragon Roll</h4>
-                    <p class="description">Roll de tempura de langostino cubierto con aguacate y anguila</p>
-                    <p class="ingredients">Langostino, aguacate, anguila, pepino, sésamo</p>
-                    <div class="price">$18.00</div>
-                </div>
-                <div class="col-md-4 menu-item" data-aos="fade-up" data-aos-delay="100">
-                    <img src="https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" alt="Rainbow Roll">
-                    <h4>Rainbow Roll</h4>
-                    <p class="description">California roll cubierto con variedad de pescados frescos</p>
-                    <p class="ingredients">Cangrejo, aguacate, pescados variados, pepino</p>
-                    <div class="price">$20.00</div>
-                </div>
-                <div class="col-md-4 menu-item" data-aos="fade-up" data-aos-delay="200">
-                    <img src="https://images.unsplash.com/photo-1563612116625-3012372fccce?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" alt="Volcano Roll">
-                    <span class="badge bg-danger">Picante</span>
-                    <h4>Volcano Roll</h4>
-                    <p class="description">Roll tempura topped con mariscos picantes gratinados</p>
-                    <p class="ingredients">Langostino tempura, cangrejo spicy, queso crema</p>
-                    <div class="price">$22.00</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Bebidas Section -->
-    <<section id="bebidas" class="menu-section bg-light">
-        <div class="container">
-            <h2 class="text-center section-title" data-aos="fade-up">Bebidas</h2>
-            <div class="row">
-                <div class="col-md-4 menu-item" data-aos="fade-up">
-                    <img src="https://images.unsplash.com/photo-1585621386284-99ba80a164fd?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" alt="Sake">
-                    <span class="special-tag">Premium</span>
-                    <h4>Sake Junmai Daiginjo</h4>
-                    <p class="description">Sake premium con notas florales y un final sedoso</p>
-                    <p class="ingredients">Arroz pulido al 50%, agua de manantial</p>
-                    <div class="price">$15.00 / 180ml</div>
-                </div>
-                <div class="col-md-4 menu-item" data-aos="fade-up" data-aos-delay="100">
-                    <img src="https://imagenes.20minutos.es/files/image_1920_1080/uploads/imagenes/2023/12/29/el-te-matcha-es-una-bebida-que-cada-vez-esta-mas-de-moda.jpeg" alt="Matcha Tea">
-                    <span class="badge bg-success">Orgánico</span>
-                    <h4>Té Matcha Ceremonial</h4>
-                    <p class="description">Té verde japonés de primera calidad preparado tradicionalmente</p>
-                    <p class="ingredients">Matcha ceremonial de Uji, Kyoto</p>
-                    <div class="price">$6.00</div>
-                </div>
-                <div class="col-md-4 menu-item" data-aos="fade-up" data-aos-delay="200">
-                    <img src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" alt="Ramune">
-                    <h4>Ramune</h4>
-                    <p class="description">Refresco japonés tradicional en botella de vidrio</p>
-                    <p class="ingredients">Disponible en: Original, Fresa, Melón</p>
-                    <div class="price">$4.00</div>
-                </div>
-            </div>
-            <div class="row mt-4">
-                <div class="col-md-4 menu-item" data-aos="fade-up">
-                    <img src="https://images.unsplash.com/photo-1544145945-f90425340c7e?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" alt="Craft Beer">
-                    <h4>Cerveza Japonesa Artesanal</h4>
-                    <p class="description">Selección de cervezas premium japonesas</p>
-                    <p class="ingredients">Asahi, Sapporo, Kirin</p>
-                    <div class="price">$7.00</div>
-                </div>
-                <div class="col-md-4 menu-item" data-aos="fade-up" data-aos-delay="100">
-                    <img src="https://s1.elespanol.com/2015/03/12/cocinillas/cocinillas_17508326_115880908_1706x1280.jpg" alt="Green Tea">
-                    <span class="badge bg-success">Sin Cafeína</span>
-                    <h4>Té Verde Sencha</h4>
-                    <p class="description">Té verde japonés tradicional</p>
-                    <p class="ingredients">Hojas de té sencha de primera cosecha</p>
-                    <div class="price">$4.00</div>
-                </div>
-                <div class="col-md-4 menu-item" data-aos="fade-up" data-aos-delay="200">
-                    <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" alt="Sake Cocktails">
-                    <span class="special-tag">Signature</span>
-                    <h4>Cócteles de Sake</h4>
-                    <p class="description">Cócteles exclusivos preparados con sake premium</p>
-                    <p class="ingredients">Sake, frutas frescas, hierbas aromáticas</p>
-                    <div class="price">$12.00</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Postres Section -->
-    <section id="postres" class="menu-section">
-        <div class="container">
-            <h2 class="text-center section-title" data-aos="fade-up">Postres</h2>
-            <div class="row">
-                <div class="col-md-4 menu-item" data-aos="fade-up">
-                    <img src="https://images.unsplash.com/photo-1587314168485-3236d6710814?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" alt="Mochi">
-                    <span class="badge bg-success">Sin Gluten</span>
-                    <h4>Mochi Ice Cream</h4>
-                    <p class="description">Helado envuelto en pasta de arroz glutinoso</p>
-                    <p class="ingredients">Sabores: Matcha, Fresa, Chocolate, Mango</p>
-                    <div class="price">$8.00</div>
-                </div>
-                <div class="col-md-4 menu-item" data-aos="fade-up" data-aos-delay="100">
-                    <img src="https://imag.bonviveur.com/dorayakis.jpg" alt="Dorayaki">
-                    <h4>Dorayaki</h4>
-                    <p class="description">Pancakes japoneses rellenos de pasta de judías dulces</p>
-                    <p class="ingredients">Masa casera, anko (pasta de judías azuki)</p>
-                    <div class="price">$7.00</div>
-                </div>
-                <div class="col-md-4 menu-item" data-aos="fade-up" data-aos-delay="200">
-                    <img src="https://images.unsplash.com/photo-1561845730-208ad5910553?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" alt="Matcha Cheesecake">
-                    <span class="special-tag">Favorito</span>
-                    <h4>Matcha Cheesecake</h4>
-                    <p class="description">Cheesecake japonés con té verde matcha</p>
-                    <p class="ingredients">Queso crema, matcha premium, galleta</p>
-                    <div class="price">$9.00</div>
+            <h2 class="text-center mb-4">¡Síguenos y contáctanos!</h2>
+            <p class="text-center mb-4">Mantente al día con nuestras novedades, promociones y eventos en redes sociales.</p>
+            <div class="row justify-content-center">
+                <div class="col-md-6 text-center">
+                    <div class="social-links mb-3">
+                        <a href="https://www.facebook.com/" target="_blank" rel="noopener" class="me-3 text-primary fs-2" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                        <a href="https://www.instagram.com/" target="_blank" rel="noopener" class="me-3 text-danger fs-2" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                        <a href="https://www.tiktok.com/" target="_blank" rel="noopener" class="me-3 text-dark fs-2" aria-label="TikTok"><i class="bi bi-tiktok"></i></a>
+                    </div>
+                    <div class="contact-info mt-3">
+                        <p class="mb-1"><i class="bi bi-telephone"></i> <a href="tel:5551234567" class="text-decoration-none text-dark">(555) 123-4567</a></p>
+                        <p><i class="bi bi-envelope"></i> <a href="mailto:info@sakurasushi.com" class="text-decoration-none text-dark">info@sakurasushi.com</a></p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -243,6 +130,11 @@
                 <div class="col-md-4 mb-3">
                     <h5>Contacto</h5>
                     <p>Tel: (555) 123-4567<br>Email: info@sakurasushi.com</p>
+                    <div class="social-links mt-2">
+                        <a href="https://www.facebook.com/" target="_blank" rel="noopener" class="me-2 text-light fs-4" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                        <a href="https://www.instagram.com/" target="_blank" rel="noopener" class="me-2 text-light fs-4" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                        <a href="https://www.tiktok.com/" target="_blank" rel="noopener" class="me-2 text-light fs-4" aria-label="TikTok"><i class="bi bi-tiktok"></i></a>
+                    </div>
                 </div>
                 <div class="col-md-4 mb-3">
                     <h5>Ubicación</h5>

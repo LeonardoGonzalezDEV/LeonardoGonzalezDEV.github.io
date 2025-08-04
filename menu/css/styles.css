@@ -125,7 +125,7 @@ body {
 }
 
 .option-card {
-    height: 140px;
+    height: 200px;
     border-radius: 1rem;
     background-size: cover;
     background-position: center;
@@ -137,22 +137,26 @@ body {
     transition: transform 0.2s, box-shadow 0.2s;
     overflow: hidden;
     text-decoration: none;
+    min-width: 100%;
 }
 
 .option-card:hover {
     transform: scale(1.04);
     box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+    filter: brightness(1.08);
 }
 
 .option-overlay {
-    background: rgba(0,0,0,0.55);
-    padding: 0.8em 1em;
+    background: rgba(0,0,0,0.60);
+    padding: 1.2em 1em;
     border-radius: 0.5em;
-    font-size: 1.2rem;
-    font-weight: 600;
+    font-size: 1.5rem;
+    font-weight: 700;
     letter-spacing: 1px;
     width: 100%;
     text-align: center;
+    color: #fff;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.5);
 }
 
 @media (max-width: 768px) {
@@ -169,7 +173,19 @@ body {
     }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 991px) {
+    .option-card {
+        height: 140px;
+        font-size: 1.1rem;
+    }
+
+    .option-overlay {
+        font-size: 1.1rem;
+        padding: 0.7em 0.5em;
+    }
+}
+
+@media (max-width: 575px) {
     .option-card {
         height: 90px;
         font-size: 1rem;
@@ -179,4 +195,12 @@ body {
         font-size: 1rem;
         padding: 0.5em 0.5em;
     }
+}
+
+.main-options .row > div {
+    display: flex;
+}
+
+.main-options .option-card {
+    flex: 1 1 auto;
 }
